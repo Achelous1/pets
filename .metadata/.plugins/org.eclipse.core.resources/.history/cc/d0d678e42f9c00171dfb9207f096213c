@@ -1,0 +1,8 @@
+package com.zip4s.pets.dao;
+
+import com.zip4s.pets.dto.CustomerDTO;
+
+public interface IDao {
+	public CustomerDTO customerDao();
+	
+}

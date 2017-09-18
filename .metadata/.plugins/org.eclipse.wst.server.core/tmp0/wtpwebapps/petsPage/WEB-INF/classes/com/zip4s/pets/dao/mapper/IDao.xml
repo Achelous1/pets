@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- mapper .xml file which maps with IDao -->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zip4s.pets.dao.IDao">
+	<!-- select문 -->
+	<select id="getCustomerDao" resultType="com.zip4s.pets.dto.CustomerDTO">
+		SELECT * FROM CUSTOMER WHERE ID = #{param1} AND PASSWORD = #{param2}
+	</select>
+	
+	<!-- insert문 -->
+	<insert id="writeDao">
+		INSERT INTO SIMPLE_BOARD (MID, MWRITER, MCONTENT) VALUES (BOARD_SEQ.NEXTVAL, #{param1}, #{param2})
+	</insert>
+	
+	<!-- delete문 -->
+	<delete id="deleteDao">
+		DELETE FROM SIMPLE_BOARD WHERE MID = #{param1}
+	</delete>
+	
+
+</mapper>
