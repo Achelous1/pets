@@ -1,7 +1,7 @@
-<%@page import="com.pets.dto.MemberDTO"%>
+<%@page import="com.zip4s.pets.dto.BoardDTO"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.pets.dto.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
@@ -27,7 +27,7 @@
 <body>
 <br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 

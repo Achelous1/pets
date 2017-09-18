@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
@@ -18,11 +18,11 @@
 	DataSource ds;
 	String query = "select * from board";%>
 <%
-	request.setCharacterEncoding("euc-kr");	/* ÆÄ¶ó¹ÌÅÍ°ªÀ» ÇÑ±Û·Î ¹Ş¾Æ¿È */
+	request.setCharacterEncoding("euc-kr");	/* íŒŒë¼ë¯¸í„°ê°’ì„ í•œê¸€ë¡œ ë°›ì•„ì˜´ */
 	String password=null;
-	int idx = Integer.parseInt(request.getParameter("idx")); //DB¿¡ ÀúÀåµÈ bNo ¹Ş¾Æ¿À±â
+	int idx = Integer.parseInt(request.getParameter("idx")); //DBì— ì €ì¥ëœ bNo ë°›ì•„ì˜¤ê¸°
 	int pg = Integer.parseInt(request.getParameter("pg"));
-	String passw = request.getParameter("password"); //delete¶§ ÀÔ·ÂÇÑ ºñ¹ø ¹Ş¾Æ¿À±â
+	String passw = request.getParameter("password"); //deleteë•Œ ì…ë ¥í•œ ë¹„ë²ˆ ë°›ì•„ì˜¤ê¸°
 
 	
  	try {
@@ -33,7 +33,7 @@
 		conn = ds.getConnection();
 		stmt = conn.createStatement();
 
-		String sql = "SELECT pw FROM board WHERE bNo=" + idx;	/* SELECT¹®À» ÀÌ¿ëÇØ¼­ µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÀÖ´Â bNo ºñ¹Ğ¹øÈ£¸¦ °¡Á®¿Í¼­ ÀúÀå */
+		String sql = "SELECT pw FROM board WHERE bNo=" + idx;	/* SELECTë¬¸ì„ ì´ìš©í•´ì„œ ë°ì´í„°ë² ì´ìŠ¤ì— ìˆëŠ” bNo ë¹„ë°€ë²ˆí˜¸ë¥¼ ê°€ì ¸ì™€ì„œ ì €ì¥ */
 		rs = stmt.executeQuery(sql);
 		
 		if (rs.next()) {
@@ -44,7 +44,7 @@
 			stmt.executeUpdate(sql);
 			%>
   			<script language=javascript>
-   				self.window.alert("ÇØ´ç ±ÛÀ» »èÁ¦ÇÏ¿´½À´Ï´Ù.");
+   				self.window.alert("í•´ë‹¹ ê¸€ì„ ì‚­ì œí•˜ì˜€ìŠµë‹ˆë‹¤.");
    				location.href="list.jsp?pg=<%=pg%>";
   			</script>
 
@@ -56,7 +56,7 @@
 		 } else { 
 %>
 			<script language=javascript>
-			 self.window.alert("ºñ¹Ğ¹øÈ£¸¦ Æ²·È½À´Ï´Ù.");
+			 self.window.alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 				location.href="javascript:history.back()";
 			</script>
 <%		

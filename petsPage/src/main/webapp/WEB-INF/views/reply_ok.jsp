@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
@@ -50,7 +50,7 @@
 		String memo = request.getParameter("memo"); */
 		
 		
-		/* select¹®À» ÀÌ¿ëÇØ¼­ idx Áï ¿ø±ÛÀÇ ref, indent, step°ªÀ» °¡Á®¿È */
+		/* selectë¬¸ì„ ì´ìš©í•´ì„œ idx ì¦‰ ì›ê¸€ì˜ ref, indent, stepê°’ì„ ê°€ì ¸ì˜´ */
 		String sql = "SELECT ref, lev, step, step2 FROM board WHERE bNo="+idx;
 /* 		System.out.println(ref);
 		System.out.println(indent);
@@ -66,11 +66,11 @@
 			step = rs.getInt(3);
 			step2 = rs.getInt(4);
 		}
-		/* ref°ªÀÌ ºÒ·¯¿Â ref¿Í °°°í stepÀÌ ºÒ·¯¿Â step°ªº¸´Ù Å« ÀÚ·áµéÀÇ stepÀ» +1 ½ÃÅ°°Ô µÊ */
+		/* refê°’ì´ ë¶ˆëŸ¬ì˜¨ refì™€ ê°™ê³  stepì´ ë¶ˆëŸ¬ì˜¨ stepê°’ë³´ë‹¤ í° ìë£Œë“¤ì˜ stepì„ +1 ì‹œí‚¤ê²Œ ë¨ */
 		sql = "UPDATE board SET STEP=STEP+1, step2=step2+1, lev=lev+1 where ref=" +ref+ "and STEP>" +step;
 		stmt.executeUpdate(sql);
 		
-		/* reply.jsp¿¡¼­ °¡Á®¿Â °ªµé°ú select¹®À» ÀÌ¿ëÇÑ °ªµéÀ» ³Ö¾î ÁÖµÇ ref´Â °°Àº °ªÀ» ³Ö°í indent¿Í stepÀº ¿ø±ÛÀÇ °ªº¸´Ù +1 ½ÃÄÑ¼­ ³Ö°Ô µÊ */
+		/* reply.jspì—ì„œ ê°€ì ¸ì˜¨ ê°’ë“¤ê³¼ selectë¬¸ì„ ì´ìš©í•œ ê°’ë“¤ì„ ë„£ì–´ ì£¼ë˜ refëŠ” ê°™ì€ ê°’ì„ ë„£ê³  indentì™€ stepì€ ì›ê¸€ì˜ ê°’ë³´ë‹¤ +1 ì‹œì¼œì„œ ë„£ê²Œ ë¨ */
 		sql = "INSERT INTO board(bno, id, pw, subject, content, ref, lev, step, step2, write_date) values(board_no.nextval,?,?,?,?,?,?,?,?,sysdate)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -83,7 +83,7 @@
 		pstmt.setInt(7, step + 1);
 		pstmt.setInt(8, step2 + 1);
 
-		/* step2¸¦ +1¾¿ Áõ°¡½ÃÅ°´Â update¸¦ ½ÃÅ°´Â ÇÔ¼ö*/
+		/* step2ë¥¼ +1ì”© ì¦ê°€ì‹œí‚¤ëŠ” updateë¥¼ ì‹œí‚¤ëŠ” í•¨ìˆ˜*/
  			sql = "SELECT max(bno) FROM board";
 			rs = stmt.executeQuery(sql);
 			System.out.println(rs); 
@@ -108,6 +108,6 @@
 %>
 
 <script language=javascript>
-	self.window.alert("ÀÔ·ÂÇÑ ±ÛÀ» ÀúÀåÇÏ¿´½À´Ï´Ù.");
+	self.window.alert("ì…ë ¥í•œ ê¸€ì„ ì €ì¥í•˜ì˜€ìŠµë‹ˆë‹¤.");
 	location.href="list.jsp?pg=<%=pg%>";
 </script>

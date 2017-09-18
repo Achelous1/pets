@@ -1,6 +1,6 @@
-<%@page import="com.pets.dto.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
@@ -41,17 +41,17 @@
 <br>
 <br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 
 
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> ·Î±×ÀÎ </a></li>
-			<li><a href="join.jsp">È¸¿ø°¡ÀÔ</a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><a href="login.jsp"> ë¡œê·¸ì¸ </a></li>
+			<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 	<%
@@ -59,10 +59,10 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> ´Ô</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> ·Î±×¾Æ¿ô </a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><%=dto.getName()%> ë‹˜</li>
+			<li><a href="MemberServlet?Action=LOGOUT"> ë¡œê·¸ì•„ì›ƒ </a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 	<%
@@ -113,7 +113,7 @@
 
 							<tr>
 								<td width="0">&nbsp;</td>
-								<td align="center" width="76">±Û¹øÈ£</td>
+								<td align="center" width="76">ê¸€ë²ˆí˜¸</td>
 								<td width="319"><%=idx%></td>
 								<td width="0">&nbsp;</td>
 							</tr>
@@ -122,7 +122,7 @@
 							</tr>
 							<tr>
 								<td width="0">&nbsp;</td>
-								<td align="center" width="76">Á¦¸ñ</td>
+								<td align="center" width="76">ì œëª©</td>
 								<td width="319"><%=title%></td>
 								<td width="0">&nbsp;</td>
 							</tr>
@@ -131,7 +131,7 @@
 							</tr>
 							<tr>
 								<td width="0">&nbsp;</td>
-								<td align="center" width="76">ÀÌ¸§</td>
+								<td align="center" width="76">ì´ë¦„</td>
 								<td width="319"><%=name%></td>
 								<td width="0">&nbsp;</td>
 							</tr>
@@ -140,7 +140,7 @@
 							</tr>
 							<tr>
 								<td width="0">&nbsp;</td>
-								<td align="center" width="76">ÀÛ¼ºÀÏ</td>
+								<td align="center" width="76">ìž‘ì„±ì¼</td>
 								<td width="319"><%=time%></td>
 								<td width="0">&nbsp;</td>
 							</tr>
@@ -150,7 +150,7 @@
 
 							<tr>
 								<td width="0">&nbsp;</td>
-								<td align="center" width="76">Á¶È¸¼ö</td>
+								<td align="center" width="76">ì¡°íšŒìˆ˜</td>
 								<td width="319"><%=hit%></td>
 								<td width="0">&nbsp;</td>
 							</tr>
@@ -181,11 +181,11 @@
 							<tr align="center" >
 								<td width="0">&nbsp;</td>
 								<td colspan="2" width="399" height="50px">
-								<input type=button class="btn" value="±Û¾²±â" OnClick="window.location='write.jsp'">
-								<input type=button class="btn" value="´ä±Û" OnClick="window.location='reply.jsp?idx=<%=idx%>&pg=<%=pg%>'">
-								<input type=button class="btn" value="¸ñ·Ï" OnClick="window.location='list.jsp?pg=<%=pg%>'"> 
-								<input type=button class="btn" value="¼öÁ¤" OnClick="window.location='modify.jsp?idx=<%=idx%>&pg=<%=pg%>'">
-								<input type=button class="btn" value="»èÁ¦" OnClick="window.location='delete.jsp?idx=<%=idx%>&pg=<%=pg%>'">
+								<input type=button class="btn" value="ê¸€ì“°ê¸°" OnClick="window.location='write.jsp'">
+								<input type=button class="btn" value="ë‹µê¸€" OnClick="window.location='reply.jsp?idx=<%=idx%>&pg=<%=pg%>'">
+								<input type=button class="btn" value="ëª©ë¡" OnClick="window.location='list.jsp?pg=<%=pg%>'"> 
+								<input type=button class="btn" value="ìˆ˜ì •" OnClick="window.location='modify.jsp?idx=<%=idx%>&pg=<%=pg%>'">
+								<input type=button class="btn" value="ì‚­ì œ" OnClick="window.location='delete.jsp?idx=<%=idx%>&pg=<%=pg%>'">
 								<td width="0">&nbsp;</td>
 							</tr>
 						</table>
@@ -197,23 +197,23 @@
 		<legend></legend>
 		<footer>
 		<ul>
-			<li>±¤°í</li>
+			<li>ê´‘ê³ </li>
 		</ul>
 		<ul>
-			<li>°æ¼÷ ÄÄÆÛ´Ï</li>
+			<li>ê²½ìˆ™ ì»´í¼ë‹ˆ</li>
 		</ul>
 		<ul>
-			<li>ºñÁö´Ï½º</li>
+			<li>ë¹„ì§€ë‹ˆìŠ¤</li>
 		</ul>
 
 		<ul>
-			<li>°³ÀÎÁ¤º¸ Ã³¸®¹æÄ§</li>
+			<li>ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨</li>
 		</ul>
 		<ul>
-			<li>¾à°ü</li>
+			<li>ì•½ê´€</li>
 		</ul>
 		<ul>
-			<li>¼³Á¤</li>
+			<li>ì„¤ì •</li>
 		</ul>
 		</footer>
 </body>
