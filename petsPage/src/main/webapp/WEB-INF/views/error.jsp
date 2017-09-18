@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,11 +10,11 @@
 <% 
 String errorMessage = (String)request.getAttribute("error_message");
 %>
-½ÇÇàµµÁß ¿À·ù°¡ ¹ß»ý Çß½À´Ï´Ù.<br>
-¿À·ù ³»¿ë 
+ì‹¤í–‰ë„ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒ í–ˆìŠµë‹ˆë‹¤.<br>
+ì˜¤ë¥˜ ë‚´ìš© 
 <%= errorMessage%>
 <p>
-<a href = "index.jsp">¸ÞÀÎ ÆäÀÌÁö·Î ÀÌµ¿</a>
+<a href = "index.jsp">ë©”ì¸ íŽ˜ì´ì§€ë¡œ ì´ë™</a>
 </p>
 </body>
 </html>

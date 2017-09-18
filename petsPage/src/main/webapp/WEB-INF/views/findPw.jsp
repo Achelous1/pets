@@ -1,4 +1,4 @@
-<%@page import="com.pets.dto.MemberDTO"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,7 +18,7 @@
 	</div>
      <div style="text-align: center;">
 			<%
-				MemberDTO dto = (MemberDTO) session.getAttribute("search_info");
+			CustomerDTO dto = (CustomerDTO) session.getAttribute("search_info");
 				String user_name = dto.getName();
 				String user_pw = dto.getPw();
 				

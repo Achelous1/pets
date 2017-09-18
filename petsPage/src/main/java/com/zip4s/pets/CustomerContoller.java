@@ -19,10 +19,9 @@ public class CustomerContoller {
 	@RequestMapping(value = "/loginChk", method = RequestMethod.POST)
 	public String loginChk(CustomerDTO customer, Model model, HttpSession session) {
 		String id = customer.getId();
-		String pw = customer.getPw();
-		//interface IDao¿Í ¸ÅÇÎ. ¸ÅÇÎÀº xml·Î ÀÛ¼º
+		String pw = customer.getPw(); 
 		IDao dao = sqlSession.getMapper(IDao.class);
-		//¸¶ÀÌ¹ÙÆ¼½º¸¦ »ç¿ëÇÏ¿© customer ¼Ó¼º ¹ÝÈ¯
+		//ï¿½ï¿½ï¿½Ì¹ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ customer ï¿½Ó¼ï¿½ ï¿½ï¿½È¯
 		model.addAttribute("customer", dao.getCustomerDao(id, pw));
 		session.setAttribute("login_info", dao);
 		return "index";

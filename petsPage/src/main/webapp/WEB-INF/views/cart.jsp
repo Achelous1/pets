@@ -49,7 +49,7 @@
 <body>
  	<br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 
@@ -135,7 +135,7 @@
 		for (int i = 0; i < list.size(); i++) {
 			ProductDTO pdto = list.get(i);
 			
-			String img = pdto.getImg();
+			String img = pdto.getPimg();
 			String pname = pdto.getName();
 			int price = pdto.getPrice();
 			int qty = pdto.getQty();

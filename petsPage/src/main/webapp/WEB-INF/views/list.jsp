@@ -1,4 +1,4 @@
-<%@page import="com.pets.dto.MemberDTO"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.SQLException"%>
@@ -54,7 +54,7 @@
 <br>
 <br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 
