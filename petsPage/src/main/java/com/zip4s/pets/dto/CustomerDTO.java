@@ -5,7 +5,7 @@ import java.sql.Date;
 public class CustomerDTO {
 	private String id;
 	private String pw;
-	private String name;
+	private String cname;
 	private String addr;
 	private String phone;
 	private Date create_date;
@@ -34,11 +34,11 @@ public class CustomerDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getName() {
-		return name;
+	public String getCname() {
+		return cname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String cname) {
+		this.cname = cname;
 	}
 	public String getAddr() {
 		return addr;
@@ -60,7 +60,7 @@ public class CustomerDTO {
 	}
 	@Override
 	public String toString() {
-		return "CustomerDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr + ", phone=" + phone
+		return "CustomerDTO [id=" + id + ", pw=" + pw + ", cname=" + cname + ", addr=" + addr + ", phone=" + phone
 				+ ", create_date=" + create_date + "]";
 	}
 }

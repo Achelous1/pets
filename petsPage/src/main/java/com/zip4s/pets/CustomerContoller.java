@@ -27,4 +27,17 @@ public class CustomerContoller {
 		session.setAttribute("login_info", dao);
 		return "index";
 	}
+	
+	@RequestMapping(value = "/signinChk", method = RequestMethod.POST)
+	public String signinChk(CustomerDTO customer) {
+		//interface IDao와 매핑. 매핑은 xml로 작성
+		IDao dao = sqlSession.getMapper(IDao.class);
+		//마이바티스를 사용하여 customer 속성 반환
+		dao.addCustomerDao(customer.getId(), 
+							customer.getPw(), 
+							customer.getCname(), 
+							customer.getPhone(), 
+							customer.getAddr());
+		return "index";
+	}
 }
