@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -18,62 +18,56 @@
     <br>
     <div id="Nav_menu">
       <ul>
-        <li><a href="./login.jsp"> ·Î±×ÀÎ </a> </li>
-        <li><a href="./join.jsp"> È¸¿ø°¡ÀÔ </a></li>
-        <li> ¸¶ÀÌÆäÀÌÁö </li>
-        <li> Àå¹Ù±¸´Ï </li>
+        <li><a href="./login.jsp"> ë¡œê·¸ì¸ </a> </li>
+        <li><a href="./join.jsp"> íšŒì›ê°€ìž… </a></li>
+        <li> ë§ˆì´íŽ˜ì´ì§€ </li>
+        <li> ìž¥ë°”êµ¬ë‹ˆ </li>
       </ul>
     </div>
-
     <br>
-
       <div id="Mainimg">
         <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
-
       <br><br><br><br><br><br>
-
     <center>
       <div class="loginForm">
-          <form method="post" action="MemberServlet?Action=LOGIN" >
+          <form method="post" action="/loginChk" >
              	<div class="box">
-                 <input type="text" class="iText"  name="id"  placeholder="¾ÆÀÌµð ÀÔ·ÂÇÏ¶ó¸Û!">
+                 <input type="text" class="iText"  name="id"  placeholder="ì•„ì´ë”” ìž…ë ¥í•˜ë¼ë©!">
                  <br>
-                 <input type="password" name="password" class="iText" placeholder="ºñ¹Ð¹øÈ£ ÀÔ·ÂÇÏ¶ó³É!">
+                 <input type="password" name="pw" class="iText" placeholder="ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥í•˜ë¼ëƒ¥!">
                  <p>
-                     <span class="fleft"><input type="checkbox" id=""><label for=""> ¾ÆÀÌµð ÀúÀå</label></span>
+                     <span class="fleft"><input type="checkbox" id=""><label for=""> ì•„ì´ë”” ì €ìž¥</label></span>
                      <br>
-                        <input type="submit" class="btn" style=" width: 300px; height:40px;" value="·Î±×ÀÎ">
+                        <input type="submit" class="btn" style=" width: 300px; height:40px;" value="ë¡œê·¸ì¸">
                         <br><br>
-                    <span class="fright"><a href="searchIdPw.jsp">¾ÆÀÌµð/ºñ¹Ð¹øÈ£ Ã£±â</a>&nbsp;|&nbsp;<a href="./join.jsp">È¸¿ø°¡ÀÔ</a></span>
+                    <span class="fright"><a href="searchIdPw.jsp">ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>&nbsp;|&nbsp;<a href="./join.jsp">íšŒì›ê°€ìž…</a></span>
                  </p>
             </div>
           </form>
         </div>
     </center>
       <br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <legend></legend>
       <footer>
         <ul>
-          <li>±¤°í</li>
+          <li>ê´‘ê³ </li>
         </ul>
         <ul>
-          <li>°æ¼÷ ÄÄÆÛ´Ï</li>
+          <li>ê²½ìˆ™ ì»´í¼ë‹ˆ</li>
         </ul>
         <ul>
-          <li>ºñÁö´Ï½º</li>
+          <li>ë¹„ì§€ë‹ˆìŠ¤</li>
         </ul>
 
         <ul>
-          <li>°³ÀÎÁ¤º¸ Ã³¸®¹æÄ§</li>
+          <li>ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨</li>
         </ul>
         <ul>
-          <li>¾à°ü</li>
+          <li>ì•½ê´€</li>
         </ul>
         <ul>
-          <li>¼³Á¤</li>
+          <li>ì„¤ì •</li>
         </ul>
       </footer>
-
   </body>
 </html>
