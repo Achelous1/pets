@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
@@ -54,7 +54,7 @@
 			stmt.executeUpdate(sql);
 %>
 <script language=javascript>
-				  	self.window.alert("±ÛÀÌ ¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+				  	self.window.alert("ê¸€ì´ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				  	location.href="view.jsp?idx=<%=idx%>&pg=<%=pg%>";
 </script>
 <%
@@ -65,7 +65,7 @@
 		} else {
 %>
 <script language=javascript>
-	self.window.alert("ºñ¹Ğ¹øÈ£¸¦ Æ²·È½À´Ï´Ù.");
+	self.window.alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 	location.href = "javascript:history.back()";
 </script>
 <%

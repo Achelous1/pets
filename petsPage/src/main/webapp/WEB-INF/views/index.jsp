@@ -1,5 +1,5 @@
-<%@page import="com.pets.dto.MemberDTO"%>
-<%@page import="com.pets.dao.*"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
+<%@page import="com.zip4s.pets.dao.*"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,7 +9,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="resources/css/style.css">
 <!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -24,11 +24,9 @@
 
 	<br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+		CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
-
-
 	<div id="Nav_menu">
 		<ul>
 			<li><a href="login.jsp"> 로그인 </a></li>
@@ -54,7 +52,7 @@
 <br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="./index.jsp"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br>

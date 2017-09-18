@@ -1,37 +1,36 @@
-<%@page import="com.pets.dto.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
-<script language = "javascript">  // ÀÚ¹Ù ½ºÅ©¸³Æ® ½ÃÀÛ
-<%@ page import="java.sql.*"%>	//ÀÚ¹Ù½ºÅ©¸³Æ®¸¦ ÀÌ¿ëÇÑ À¯È¿¼º°Ë»ç( ÀÌ¸§, ºñ¹Ð¹øÈ£, Á¦¸ñ, ³»¿ëÀ» ÀÔ·Â ¾ÈÇßÀ»½Ã¿¡ °æ°íÃ¢À» ¶ç¿ì°í ÀÔ·ÂÇÏ°Ô²û ÇÔ)
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<script language = "javascript">  // ìžë°” ìŠ¤í¬ë¦½íŠ¸ ì‹œìž‘
+<%@ page import="java.sql.*"%>	//ìžë°”ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì´ìš©í•œ ìœ íš¨ì„±ê²€ì‚¬( ì´ë¦„, ë¹„ë°€ë²ˆí˜¸, ì œëª©, ë‚´ìš©ì„ ìž…ë ¥ ì•ˆí–ˆì„ì‹œì— ê²½ê³ ì°½ì„ ë„ìš°ê³  ìž…ë ¥í•˜ê²Œë” í•¨)
 
 function writeCheck()
   {
    var form = document.writeform;
    
-   if( !form.name.value )   // form ¿¡ ÀÖ´Â name °ªÀÌ ¾øÀ» ¶§
+   if( !form.name.value )   // form ì— ìžˆëŠ” name ê°’ì´ ì—†ì„ ë•Œ
    {
-    alert( "ÀÌ¸§À» Àû¾îÁÖ¼¼¿ä" ); // °æ°íÃ¢ ¶ç¿ò
-    form.name.focus();   // form ¿¡ ÀÖ´Â name À§Ä¡·Î ÀÌµ¿
+    alert( "ì´ë¦„ì„ ì ì–´ì£¼ì„¸ìš”" ); // ê²½ê³ ì°½ ë„ì›€
+    form.name.focus();   // form ì— ìžˆëŠ” name ìœ„ì¹˜ë¡œ ì´ë™
     return;
    }
    
    if( !form.password.value )
    {
-    alert( "ºñ¹Ð¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä" );
+    alert( "ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”" );
     form.password.focus();
     return;
    }
    
   if( !form.title.value )
    {
-    alert( "Á¦¸ñÀ» Àû¾îÁÖ¼¼¿ä" );
+    alert( "ì œëª©ì„ ì ì–´ì£¼ì„¸ìš”" );
     form.title.focus();
     return;
    }
  
   if( !form.memo.value )
    {
-    alert( "³»¿ëÀ» Àû¾îÁÖ¼¼¿ä" );
+    alert( "ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”" );
     form.memo.focus();
     return;
    }
@@ -58,17 +57,17 @@ function writeCheck()
 <br>
 <br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+		CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 
 
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> ·Î±×ÀÎ </a></li>
-			<li><a href="join.jsp">È¸¿ø°¡ÀÔ</a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><a href="login.jsp"> ë¡œê·¸ì¸ </a></li>
+			<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 	<%
@@ -76,10 +75,10 @@ function writeCheck()
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> ´Ô</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> ·Î±×¾Æ¿ô </a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><%=dto.getName()%> ë‹˜</li>
+			<li><a href="MemberServlet?Action=LOGOUT"> ë¡œê·¸ì•„ì›ƒ </a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 	<%
@@ -92,18 +91,18 @@ function writeCheck()
       </div>
       
       
-      <form name="writeform" method="post" action="write_ok.jsp">	<!-- ÀÌ °÷¿¡ ¾²ÀÎ °ªµéÀ» write_ok.jsp¿¡ º¸³»±â -->
+      <form name="writeform" method="post" action="write_ok.jsp">	<!-- ì´ ê³³ì— ì“°ì¸ ê°’ë“¤ì„ write_ok.jspì— ë³´ë‚´ê¸° -->
       <tr>
    		<td>
    		<div id="shopimg">
-   		<div style="border-bottom:1px solid #cccccc;"><h3> ±Û¾²±â </h3></div>
+   		<div style="border-bottom:1px solid #cccccc;"><h3> ê¸€ì“°ê¸° </h3></div>
    		</div>
    		<br><br><br>
    		<center>
     	<table>
     	 <tr>
 	      	<td>&nbsp;</td>
-	      	<td align="center">Á¦¸ñ</td>
+	      	<td align="center">ì œëª©</td>
 	      	<td><input name="title" size="48" maxlength="100"></td>
 	      	<td>&nbsp;</td>
 	      	</tr>
@@ -112,26 +111,26 @@ function writeCheck()
     
     <%if(dto==null){ %>
 	      <td>&nbsp;</td>
-	      <td align="center">ÀÌ¸§</td>
+	      <td align="center">ì´ë¦„</td>
 	      <td><input name="name" size="48" maxlength="50"></td>
 	      <td>&nbsp;</td>
 	     </tr>
 	      <tr bgcolor="#cccccc"><td colspan="4"></td></tr>
 	    <tr>
 	      <td>&nbsp;</td>
-	      <td align="center">ºñ¹Ð¹øÈ£</td>
+	      <td align="center">ë¹„ë°€ë²ˆí˜¸</td>
 	      <td><input type="password" name="password" size="48" maxlength="50"></td>
 	      <td>&nbsp;</td>
       <%}else{ %>
 	      <td>&nbsp;</td>
-	      <td align="center">ÀÌ¸§</td>
+	      <td align="center">ì´ë¦„</td>
 	      <td><input name="name" size="48" maxlength="50" value="<%=dto.getName() %>"></td>
 	      <td>&nbsp;</td>
 	     </tr>
 	      <tr bgcolor="#cccccc"><td colspan="4"></td></tr>
 	    <tr>
 	      <td>&nbsp;</td>
-	      <td align="center">ºñ¹Ð¹øÈ£</td>
+	      <td align="center">ë¹„ë°€ë²ˆí˜¸</td>
 	      <td><input type="password" name="password" size="48" maxlength="50" value="<%=dto.getPw()%>"></td>
 	      <td>&nbsp;</td>
       <%} %>
@@ -139,7 +138,7 @@ function writeCheck()
      <tr bgcolor="#cccccc"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
-      <td align="center">³»¿ë</td>
+      <td align="center">ë‚´ìš©</td>
       <td><textarea name="memo" cols="50" rows="13"></textarea></td>
       <td>&nbsp;</td>
      </tr>
@@ -148,12 +147,12 @@ function writeCheck()
      <tr align="center">
       <td>&nbsp;</td>
       <td colspan="2">
-      <input type="submit" class="btn" style=" width: 100px; height:40px; margin-top: 10px;" value="µî·Ï" OnClick="javascript:writeCheck();">       
-      <!-- µî·Ï ¹öÆ°À» ´©¸¦½Ã writeCheck() ÇÔ¼ö·Î °¡¼­ °Ë»ç¸¦ ÇÏ°í ÀÌ»óÀÌ ¾øÀ»½Ã form.submit()À¸·Î write_ok.jsp·Î °ªÀ» º¸³»°Ô µÊ -->
-       <input type="button" class="btn" style=" width: 100px; height:40px; margin-top: 10px;" value="Ãë¼Ò" OnClick="javascript:history.back(-1)"/>
+      <input type="submit" class="btn" style=" width: 100px; height:40px; margin-top: 10px;" value="ë“±ë¡" OnClick="javascript:writeCheck();">       
+      <!-- ë“±ë¡ ë²„íŠ¼ì„ ëˆ„ë¥¼ì‹œ writeCheck() í•¨ìˆ˜ë¡œ ê°€ì„œ ê²€ì‚¬ë¥¼ í•˜ê³  ì´ìƒì´ ì—†ì„ì‹œ form.submit()ìœ¼ë¡œ write_ok.jspë¡œ ê°’ì„ ë³´ë‚´ê²Œ ë¨ -->
+       <input type="button" class="btn" style=" width: 100px; height:40px; margin-top: 10px;" value="ì·¨ì†Œ" OnClick="javascript:history.back(-1)"/>
        
       
-       <!-- Ãë¼Ò ¹öÆ°À» ´©¸¦½Ã µÚ·Î°¡±â ÄÚµåÀÎ history.back()À» ³ÖÀ½ -->
+       <!-- ì·¨ì†Œ ë²„íŠ¼ì„ ëˆ„ë¥¼ì‹œ ë’¤ë¡œê°€ê¸° ì½”ë“œì¸ history.back()ì„ ë„£ìŒ -->
        </td>
       <td>&nbsp;</td>
      </tr>
@@ -168,23 +167,23 @@ function writeCheck()
       <legend></legend>
       <footer>
         <ul>
-          <li>±¤°í</li>
+          <li>ê´‘ê³ </li>
         </ul>
         <ul>
-          <li>°æ¼÷ ÄÄÆÛ´Ï</li>
+          <li>ê²½ìˆ™ ì»´í¼ë‹ˆ</li>
         </ul>
         <ul>
-          <li>ºñÁö´Ï½º</li>
+          <li>ë¹„ì§€ë‹ˆìŠ¤</li>
         </ul>
 
         <ul>
-          <li>°³ÀÎÁ¤º¸ Ã³¸®¹æÄ§</li>
+          <li>ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨</li>
         </ul>
         <ul>
-          <li>¾à°ü</li>
+          <li>ì•½ê´€</li>
         </ul>
         <ul>
-          <li>¼³Á¤</li>
+          <li>ì„¤ì •</li>
         </ul>
       </footer>
 </body>
