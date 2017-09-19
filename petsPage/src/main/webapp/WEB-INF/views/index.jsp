@@ -24,8 +24,8 @@
 
 	<br>
 	<%
-		CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
-		if (dto == null) {
+		CustomerDTO customer = (CustomerDTO)session.getAttribute("customer_info");
+		if (customer == null) {
 	%>
 	<div id="Nav_menu">
 		<ul>
@@ -40,8 +40,8 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getCname()%> 님</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
+			<li><%=customer.getCname()%> 님</li>
+			<li><a href="logout"> 로그아웃 </a></li>
 			<li>마이페이지</li>
 			<li><a href="cart">장바구니</a></li>
 		</ul>
@@ -49,7 +49,7 @@
 	<%
 		}
 	%>
-<br>
+	<br>
 
       <div id="Mainimg">
         <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
@@ -59,7 +59,7 @@
 
     <center>
       <div class="dropdown" >
-        <a href="./shopping.jsp"><button class="dropbtn">쇼핑</button></a>
+        <a href="shopping"><button class="dropbtn">쇼핑</button></a>
        
        <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
         <div class="dropdown-content">

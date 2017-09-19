@@ -25,8 +25,8 @@
 
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> 로그인 </a></li>
-			<li><a href="join.jsp">회원가입</a></li>
+			<li><a href="login"> 로그인 </a></li>
+			<li><a href="join">회원가입</a></li>
 			<li>마이페이지</li>
 			<li>장바구니</li>
 		</ul>
@@ -37,7 +37,7 @@
 	<div id="Nav_menu">
 		<ul>
 			<li><%=dto.getName()%> 님</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
+			<li><a href="logout"> 로그아웃 </a></li>
 			<li>마이페이지</li>
 			<li>장바구니</li>
 		</ul>
@@ -98,12 +98,12 @@
       <div style="border-bottom:1px solid #cccccc;"><h3>정보</h3></div>
       <br><br>
       <center>
-        <span><img src="./img/training.jpg" style="width:30%; height:30%;"><img src="./img/training2.jpg" style="width:30%; height:30%;">
+        <span><img src="resources/img/training.jpg" style="width:30%; height:30%;"><img src="./img/training2.jpg" style="width:30%; height:30%;">
         </span>
       <br><br><br><br><br><br>
-      <span><img src="./img/massage.jpg" style="width:30%; height:30%;"><img src="./img/massage2.jpg" style="width:30%; height:30%;"></span>
+      <span><img src="resources/img/massage.jpg" style="width:30%; height:30%;"><img src="./img/massage2.jpg" style="width:30%; height:30%;"></span>
       <br><br><br><br><br><br>
-      <span><img src="./img/inoculation.jpg" style="width:30%; height:30%;"><img src="./img/inoculation2.jpg" style="width:30%; height:30%;"></span>
+      <span><img src="resources/img/inoculation.jpg" style="width:30%; height:30%;"><img src="./img/inoculation2.jpg" style="width:30%; height:30%;"></span>
       </center>
 
 

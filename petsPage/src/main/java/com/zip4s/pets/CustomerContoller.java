@@ -17,14 +17,13 @@ public class CustomerContoller {
 	private SqlSession sqlSession;
 
 	@RequestMapping(value = "/loginChk", method = RequestMethod.POST)
-	public String loginChk(CustomerDTO customer, Model model, HttpSession session) {
+	public String loginChk(CustomerDTO customer, HttpSession session) {
 		String id = customer.getId();
 		String pw = customer.getPw(); 
 		IDao dao = sqlSession.getMapper(IDao.class);
-		//
-		model.addAttribute("customer", dao.getCustomerDao(id, pw));
-		session.setAttribute("login_info", dao);
 		
+		customer = dao.getCustomerDao(id, pw);	
+		session.setAttribute("customer_info", customer);
 		return "index";
 	}
 	
@@ -32,10 +31,7 @@ public class CustomerContoller {
 	public String signupChk(CustomerDTO customer) {
 		
 		System.out.println(customer);
-		
-		//interface IDao와 매핑. 매핑은 xml로 작성
 		IDao dao = sqlSession.getMapper(IDao.class);
-		//마이바티스를 사용하여 customer 속성 반환
 		dao.addCustomerDao(customer.getId(), 
 							customer.getPw(), 
 							customer.getCname(), 
@@ -45,5 +41,10 @@ public class CustomerContoller {
 		return "index";
 	}
 	
-	
+	@RequestMapping("/logout")
+	public String logout() {
+
+		return "logout";
+	}
+
 }
