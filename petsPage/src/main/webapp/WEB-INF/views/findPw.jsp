@@ -18,12 +18,8 @@
 	</div>
      <div style="text-align: center;">
 			<%
-<<<<<<< HEAD
 				CustomerDTO dto = (CustomerDTO) session.getAttribute("search_info");
-=======
-			CustomerDTO dto = (CustomerDTO) session.getAttribute("search_info");
->>>>>>> ca0203665f9ad0dea9b6683cffa06b3c65fae02f
-				String user_name = dto.getName();
+				String user_name = dto.getCname();
 				String user_pw = dto.getPw();
 				
 				if(user_name.equals("-1")){
