@@ -3,7 +3,9 @@ package com.zip4s.pets.dao;
 import java.util.ArrayList;
 
 import com.zip4s.pets.dto.BoardDTO;
+import com.zip4s.pets.dto.CartDTO;
 import com.zip4s.pets.dto.CustomerDTO;
+import com.zip4s.pets.dto.ProductDTO;
 
 public interface IDao {
 	
@@ -15,15 +17,17 @@ public interface IDao {
 	
 	//게시판 manipulation DAO
 	public ArrayList<BoardDTO> getBoardListDao();
-	public void writeBoardDao();
+	public void writeBoardDao(String subject, String id, String pw, String content);
+	public BoardDTO getBoardDao(int bno);
+	public void deleteBoardDao(int bno);
+	public void updateBoardDao(int bno, String subject, String id, String pw, String content);
 	
 	//장바구니
+	public ArrayList<CartDTO> getCartList(int cno);
+	public void deleteFromCart(int cno, int pno);
 	
 	//제품
-	
-	
-/*	public ArrayList<ContentDto> listDao();
-	public void writeDao(String mWriter, String mContent);
-	public ContentDto viewDao(String strID);
-	public void deleteDao(String bId);*/
+	public ProductDTO getProductDao(int pno);
+	public ArrayList<ProductDTO> getProductListDao();
+
 }

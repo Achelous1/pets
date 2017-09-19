@@ -14,21 +14,25 @@ import com.zip4s.pets.dto.CustomerDTO;
 public class CustomerContoller {
 	
 	@Autowired
-	public static SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	@RequestMapping(value = "/loginChk", method = RequestMethod.POST)
 	public String loginChk(CustomerDTO customer, Model model, HttpSession session) {
 		String id = customer.getId();
 		String pw = customer.getPw(); 
 		IDao dao = sqlSession.getMapper(IDao.class);
-		//ï¿½ï¿½ï¿½Ì¹ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ customer ï¿½Ó¼ï¿½ ï¿½ï¿½È¯
+		//
 		model.addAttribute("customer", dao.getCustomerDao(id, pw));
 		session.setAttribute("login_info", dao);
+		
 		return "index";
 	}
 	
-	@RequestMapping(value = "/signinChk", method = RequestMethod.POST)
-	public String signinChk(CustomerDTO customer) {
+	@RequestMapping(value = "/signupChk", method = RequestMethod.POST)
+	public String signupChk(CustomerDTO customer) {
+		
+		System.out.println(customer);
+		
 		//interface IDao¿Í ¸ÅÇÎ. ¸ÅÇÎÀº xml·Î ÀÛ¼º
 		IDao dao = sqlSession.getMapper(IDao.class);
 		//¸¶ÀÌ¹ÙÆ¼½º¸¦ »ç¿ëÇÏ¿© customer ¼Ó¼º ¹ÝÈ¯
@@ -37,6 +41,9 @@ public class CustomerContoller {
 							customer.getCname(), 
 							customer.getPhone(), 
 							customer.getAddr());
+		
 		return "index";
 	}
+	
+	
 }

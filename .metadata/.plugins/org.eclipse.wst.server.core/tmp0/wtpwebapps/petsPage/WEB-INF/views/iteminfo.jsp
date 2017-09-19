@@ -1,4 +1,5 @@
-<%@page import="com.pets.dto.*"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
+<%@page import="com.zip4s.pets.dto.ProductDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,8 +23,8 @@
 		
 		int pno = pdto.getPno();
 		String name = pdto.getName();
-		String img = pdto.getImg();
-		String img2 = pdto.getImg2();
+		String img = pdto.getPimg();
+		String img2 = pdto.getPimg2();
 		int price = pdto.getPrice();
 		int qty = pdto.getQty();
 	%>
@@ -35,7 +36,7 @@
   
     <br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 

@@ -1,6 +1,5 @@
 package com.zip4s.pets;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -8,8 +7,6 @@ import java.util.Locale;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +21,7 @@ import com.zip4s.pets.dto.CustomerDTO;
 public class HomeController {
 	
 	@Autowired
-	public SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -42,5 +39,15 @@ public class HomeController {
 		model.addAttribute("board_list", dao.getBoardListDao());
 		
 		return "list";
+	}
+	
+	@RequestMapping(value = "/join")
+	public String join() {
+		return "join";
+	}
+	
+	@RequestMapping(value = "/cart")
+	public String cart() {
+		return "cart";
 	}
 }

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -23,7 +23,7 @@ function checkId(id){
 		   return history.go(-1);
 	   }
 	   console.log(id);
-	   window.open("MemberServlet?Action=checkId&id=" + id, "Check_availability", "width=400,height=200");
+	   window.open("checkId?id=" + id, "Check_availability", "width=400,height=200");
 	}
 	
 	function writeCheck() {
@@ -44,7 +44,7 @@ function checkId(id){
 			alert("약관에 동의해주세요");
 			return false;
 		}else {
-			form.action = "MemberServlet?Action=JOIN";
+			form.action = "signupChk";
 			form.submit();
 		}
 	}
@@ -53,8 +53,8 @@ function checkId(id){
     <br>
     <div id="Nav_menu">
       <ul>
-        <li><a href="./login.jsp"> 로그인 </a> </li>
-        <li><a href="./join.jsp"> 회원가입 </a></li>
+        <li><a href="login"> 로그인 </a> </li>
+        <li><a href="join"> 회원가입 </a></li>
         <li> 마이페이지 </li>
         <li> 장바구니 </li>
       </ul>
@@ -63,28 +63,27 @@ function checkId(id){
     <br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br><br><br><br><br>
       
     <div class="loginForm" style="width:100%;">
-	<form name="writeForm" action="MemberServlet?Action=JOIN" onsubmit="return false;" method="post" style="width:100%;">
+	<form name="writeForm" action="disabled" onsubmit="return false;" method="post" style="width:100%;">
 		 <div class="box" style="text-align:center; width:100%; color:#737373;" >
-               <label for="user_id" style="margin-left:5%;">*아이디</label>
+               <label for="id" style="margin-left:5%;">*아이디</label>
                <input type="text" id="id" name="id" class="iText">
                 <input type="button" class="btn" value="중복확인 " onclick="checkId(document.getElementById('id').value);">
-
                <br><br>
-               <label for="user_id">*비밀번호</label><input type="password" name="pw" class="iText" >
+               <label for="pw">*비밀번호</label><input type="password" name="pw" class="iText" >
               <br><br>
-              <label for="user_id">*비밀번호확인</label> <input type="password"  name="pwCheck" class="iText" >
+              <label for="confirmPw">*비밀번호확인</label> <input type="password"  name="pwCheck" class="iText" >
               <br><br>
-	      <label for="user_id">*이름</label> <input type="text"  name="cname" class="iText" >
+	      	  <label for="cname">*이름</label> <input type="text"  name="cname" class="iText" >
               <br><br>
-              <label for="user_id">주소</label> <input type="text"  name="addr" class="iText" >
+              <label for="addr">주소</label> <input type="text"  name="addr" class="iText" >
               <br><br>
-               <label for="user_id">전화번호</label> <input type="text"  name="phone"  class="iText" >
+               <label for="phone">전화번호</label> <input type="text"  name="phone"  class="iText" >
                <br><br><br>
 
                <div id="div1"  style="border:1px solid #e1e1e1; witdh:40%; text-align:center; margin-left:33%;">
@@ -121,7 +120,6 @@ function checkId(id){
 	<br>
 	<br>
 	<br>
-	<legend></legend>
 	<footer>
 	<ul>
 		<li>광고</li>

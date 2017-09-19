@@ -1,6 +1,6 @@
-<%@page import="com.pets.dto.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="com.zip4s.pets.dto.CustomerDTO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
@@ -10,10 +10,10 @@
 <%@ page import="javax.naming.InitialContext"%>
 <%@ page import="javax.naming.NamingException"%>
 <%@ page import="javax.sql.DataSource"%>
-<%@ page import="java.util.*, java.text.*"%>
+<%@ page import="java.util.*, java.text.*"%>`
 <%@ page import="java.sql.*"%>
 <script language="javascript">
-	//ÀÚ¹Ù ½ºÅ©¸³Æ® ½ÃÀÛ
+	//ìžë°” ìŠ¤í¬ë¦½íŠ¸ ì‹œìž‘
 <%!Connection conn;
 	Statement stmt;
 	ResultSet rs;
@@ -22,27 +22,27 @@
 	function replyCheck() {
 		var form = document.replyform;
 
-		if (!form.name.value) // form ¿¡ ÀÖ´Â name °ªÀÌ ¾øÀ» ¶§
+		if (!form.name.value) // form ì— ìžˆëŠ” name ê°’ì´ ì—†ì„ ë•Œ
 		{
-			alert("ÀÌ¸§À» Àû¾îÁÖ¼¼¿ä"); // °æ°íÃ¢ ¶ç¿ò
-			form.name.focus(); // form ¿¡ ÀÖ´Â name À§Ä¡·Î ÀÌµ¿
+			alert("ì´ë¦„ì„ ì ì–´ì£¼ì„¸ìš”"); // ê²½ê³ ì°½ ë„ì›€
+			form.name.focus(); // form ì— ìžˆëŠ” name ìœ„ì¹˜ë¡œ ì´ë™
 			return;
 		}
 
 		if (!form.password.value) {
-			alert("ºñ¹Ð¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä");
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”");
 			form.password.focus();
 			return;
 		}
 
 		if (!form.title.value) {
-			alert("Á¦¸ñÀ» Àû¾îÁÖ¼¼¿ä");
+			alert("ì œëª©ì„ ì ì–´ì£¼ì„¸ìš”");
 			form.title.focus();
 			return;
 		}
 
 		if (!form.memo.value) {
-			alert("³»¿ëÀ» Àû¾îÁÖ¼¼¿ä");
+			alert("ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”");
 			form.memo.focus();
 			return;
 		}
@@ -101,17 +101,17 @@
 <body>
 <br>
 	<%
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_info");
+		CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
 
 
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> ·Î±×ÀÎ </a></li>
-			<li><a href="join.jsp">È¸¿ø°¡ÀÔ</a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><a href="login.jsp"> ë¡œê·¸ì¸ </a></li>
+			<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 	<%
@@ -119,10 +119,10 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> ´Ô</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> ·Î±×¾Æ¿ô </a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><%=dto.getName()%> ë‹˜</li>
+			<li><a href="MemberServlet?Action=LOGOUT"> ë¡œê·¸ì•„ì›ƒ </a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 	<%
@@ -149,14 +149,14 @@
 						<table width="100%" cellpadding="0" cellspacing="0" border="0">
 							<tr style="text-align: center;">
 								<td width="5" width="5" height="30" /></td>
-								<td>´ä±Û´Þ±â</td>
+								<td>ë‹µê¸€ë‹¬ê¸°</td>
 								<td width="5" width="5" height="30" /></td>
 							</tr>
 						</table>
 						<table>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="center">Á¦¸ñ</td>
+								<td align="center">ì œëª©</td>
 								<td>
 								<input name="title" size="48" maxlength="100"
 									value="<%=title%>"></td>
@@ -167,7 +167,7 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="center">ÀÌ¸§</td>
+								<td align="center">ì´ë¦„</td>
 								<td>
 								<input name="name" size="48" maxlength="50"></td>
 								<td>&nbsp;</td>
@@ -177,7 +177,7 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="center">ºñ¹Ð¹øÈ£</td>
+								<td align="center">ë¹„ë°€ë²ˆí˜¸</td>
 								<td>
 								<input name="password" size="48" maxlength="50"></td>
 								<td>&nbsp;</td>
@@ -187,7 +187,7 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="center">³»¿ë</td>
+								<td align="center">ë‚´ìš©</td>
 								<td>
 								<textarea name="memo" cols="50" rows="13"></textarea></td>
 								<td>&nbsp;</td>
@@ -203,11 +203,11 @@
 								<td colspan="2">
 								<input type=button class="btn"
 									style="width: 100px; height: 40px; margin-top: 10px;"
-									value="µî·Ï" OnClick="javascript:replyCheck();"> 
+									value="ë“±ë¡" OnClick="javascript:replyCheck();"> 
 									<input
 									type=button class="btn"
 									style="width: 100px; height: 40px; margin-top: 10px;"
-									value="Ãë¼Ò" OnClick="javascript:history.back(-1)">
+									value="ì·¨ì†Œ" OnClick="javascript:history.back(-1)">
 								<td>&nbsp;</td>
 							</tr>
 						</table>
@@ -231,23 +231,23 @@
 	<legend></legend>
 	<footer>
 	<ul>
-		<li>±¤°í</li>
+		<li>ê´‘ê³ </li>
 	</ul>
 	<ul>
-		<li>°æ¼÷ ÄÄÆÛ´Ï</li>
+		<li>ê²½ìˆ™ ì»´í¼ë‹ˆ</li>
 	</ul>
 	<ul>
-		<li>ºñÁö´Ï½º</li>
+		<li>ë¹„ì§€ë‹ˆìŠ¤</li>
 	</ul>
 
 	<ul>
-		<li>°³ÀÎÁ¤º¸ Ã³¸®¹æÄ§</li>
+		<li>ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨</li>
 	</ul>
 	<ul>
-		<li>¾à°ü</li>
+		<li>ì•½ê´€</li>
 	</ul>
 	<ul>
-		<li>¼³Á¤</li>
+		<li>ì„¤ì •</li>
 	</ul>
 	</footer>
 </body>

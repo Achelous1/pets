@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     <%@ page import="java.sql.*"%> 
     <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
@@ -34,7 +34,7 @@ board_seq.currval from dual
 </select>
 
 <%
-	request.setCharacterEncoding("euc-kr"); //¹Ş¾Æ¿À´Â °ªµéÀ» ÇÑ±Û·Î ÀÎÄÚµùÇÕ´Ï´Ù.
+	request.setCharacterEncoding("euc-kr"); //ë°›ì•„ì˜¤ëŠ” ê°’ë“¤ì„ í•œê¸€ë¡œ ì¸ì½”ë”©í•©ë‹ˆë‹¤.
 
 	/* Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 	
@@ -42,11 +42,11 @@ board_seq.currval from dual
 	String id = "";
 	String pass = ""; */
 	
-	String name = request.getParameter("name"); //write.jsp¿¡¼­ name¿¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ°ª
-	String password = request.getParameter("password");//write.jsp¿¡¼­ password¿¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ°ª
-	String title = request.getParameter("title"); //write.jsp¿¡¼­ title¿¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ°ª
+	String name = request.getParameter("name"); //write.jspì—ì„œ nameì— ì…ë ¥í•œ ë°ì´í„°ê°’
+	String password = request.getParameter("password");//write.jspì—ì„œ passwordì— ì…ë ¥í•œ ë°ì´í„°ê°’
+	String title = request.getParameter("title"); //write.jspì—ì„œ titleì— ì…ë ¥í•œ ë°ì´í„°ê°’
 	String today = request.getParameter("sysdate");
-	String memo = request.getParameter("memo"); //write.jsp¿¡¼­ memo¿¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ°ª
+	String memo = request.getParameter("memo"); //write.jspì—ì„œ memoì— ì…ë ¥í•œ ë°ì´í„°ê°’
 	
 /* 	String sql = "INSERT INTO board(bNo,id,pw,subject,write_date,content,ref) VALUES(board_seq.nextval,?,?,?,sysdate,?,?)";  */
 	%>
@@ -84,7 +84,7 @@ board_seq.currval from dual
  		pstmt.setInt(7, step);
  		pstmt.setInt(8, step2); 
  		
-		/* step2¸¦ +1¾¿ Áõ°¡½ÃÅ°´Â update¸¦ ½ÃÅ°´Â ÇÔ¼ö*/
+		/* step2ë¥¼ +1ì”© ì¦ê°€ì‹œí‚¤ëŠ” updateë¥¼ ì‹œí‚¤ëŠ” í•¨ìˆ˜*/
 		sql = "SELECT max(bno) FROM board";
 		rs = stmt.executeQuery(sql);
 /* 		System.out.println(max); */
@@ -107,7 +107,7 @@ board_seq.currval from dual
 %>
 
    <script language=javascript>
-   self.window.alert("ÀÔ·ÂÇÑ ±ÛÀ» ÀúÀåÇÏ¿´½À´Ï´Ù.");
+   self.window.alert("ì…ë ¥í•œ ê¸€ì„ ì €ì¥í•˜ì˜€ìŠµë‹ˆë‹¤.");
    location.href="list.jsp"; 
    </script>
 

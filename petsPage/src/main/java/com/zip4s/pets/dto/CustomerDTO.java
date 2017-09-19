@@ -3,7 +3,13 @@ package com.zip4s.pets.dto;
 import java.sql.Date;
 
 public class CustomerDTO {
+	private int cno;
 	private String id;
+	public int getCno() {
+		return cno;
+	}
+
+	
 	private String pw;
 	private String cname;
 	private String addr;
@@ -20,8 +26,14 @@ public class CustomerDTO {
 	      setAddr(addr);
 	      setPhone(phone);
 	      setCreate_date(create_date);
-	   }
-
+   }
+   
+   public void setCno(int cno) {
+		this.cno = cno;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
 	public String getId() {
 		return id;
 	}

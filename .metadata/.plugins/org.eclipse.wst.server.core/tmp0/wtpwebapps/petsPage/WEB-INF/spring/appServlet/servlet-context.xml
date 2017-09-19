@@ -23,7 +23,7 @@
 	
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="zip4.c25mjv4m4fd4.ap-northeast-2.rds.amazonaws.com:3306" />
+		<beans:property name="url" value="jdbc:mysql://zip4.c25mjv4m4fd4.ap-northeast-2.rds.amazonaws.com:3306/pets" />
 		<beans:property name="username" value="zip4s" />
 		<beans:property name="password" value="zip4spassword" />
 	</beans:bean>

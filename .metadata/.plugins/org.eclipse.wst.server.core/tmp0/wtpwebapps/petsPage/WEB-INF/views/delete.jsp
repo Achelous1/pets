@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <script language="javascript">
-	// ÀÚ¹Ù ½ºÅ©¸³Æ® ½ÃÀÛ
+	// ìžë°” ìŠ¤í¬ë¦½íŠ¸ ì‹œìž‘
 
 	function deleteCheck() {
 		var form = document.deleteform;
 
 		if (!form.password.value) {
-			alert("ºñ¹Ð¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä");
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”");
 			form.password.focus();
 			return;
 		}
@@ -15,7 +15,7 @@
 	}
 </script>
 <%
-	int idx = Integer.parseInt(request.getParameter("idx")); /* view.jsp¿¡¼­ º¸³½ idx°ªÀ» ÀúÀå */
+	int idx = Integer.parseInt(request.getParameter("idx")); /* view.jspì—ì„œ ë³´ë‚¸ idxê°’ì„ ì €ìž¥ */
 	int pg = Integer.parseInt(request.getParameter("pg"));
 %>
 
@@ -40,10 +40,10 @@
 <br>
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="./login.html"> ·Î±×ÀÎ </a></li>
-			<li><a href="./join.html"> È¸¿ø°¡ÀÔ </a></li>
-			<li>¸¶ÀÌÆäÀÌÁö</li>
-			<li>Àå¹Ù±¸´Ï</li>
+			<li><a href="./login.html"> ë¡œê·¸ì¸ </a></li>
+			<li><a href="./join.html"> íšŒì›ê°€ìž… </a></li>
+			<li>ë§ˆì´íŽ˜ì´ì§€</li>
+			<li>ìž¥ë°”êµ¬ë‹ˆ</li>
 		</ul>
 	</div>
 
@@ -64,22 +64,22 @@
 		<center>
 			<table>
 				<form name=deleteform method=post action="delete_ok.jsp?idx=<%=idx%>&pg=<%=pg%>">
-					<!-- table¾ÈÂÊ¿¡ formÀ» »ý¼ºÇÏ°í delete_ok¿¡ idx°ªÀ» Æ÷ÇÔÇØ¼­ Àü¼Û -->
+					<!-- tableì•ˆìª½ì— formì„ ìƒì„±í•˜ê³  delete_okì— idxê°’ì„ í¬í•¨í•´ì„œ ì „ì†¡ -->
 					<tr>
 						<td>
 						
 							<table>
 								<tr>
 									<td>&nbsp;</td>
-									<td align="center">ºñ¹Ð¹øÈ£</td>
+									<td align="center">ë¹„ë°€ë²ˆí˜¸</td>
 									<td><input name="password" type="password" size="50" maxlength="100"></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr align="center"  height="50px">
 									<td>&nbsp;</td>
 									<td colspan="2">
-									<input type=button class="btn" value="»èÁ¦" OnClick="javascript:deleteCheck();">
-									<input type=button class="btn" value="Ãë¼Ò" OnClick="javascript:history.back(-1)">
+									<input type=button class="btn" value="ì‚­ì œ" OnClick="javascript:deleteCheck();">
+									<input type=button class="btn" value="ì·¨ì†Œ" OnClick="javascript:history.back(-1)">
 									<td>&nbsp;</td>
 								</tr>
 							</table>
@@ -105,23 +105,23 @@
 			<legend></legend>
 			<footer>
 			<ul>
-				<li>±¤°í</li>
+				<li>ê´‘ê³ </li>
 			</ul>
 			<ul>
-				<li>°æ¼÷ ÄÄÆÛ´Ï</li>
+				<li>ê²½ìˆ™ ì»´í¼ë‹ˆ</li>
 			</ul>
 			<ul>
-				<li>ºñÁö´Ï½º</li>
+				<li>ë¹„ì§€ë‹ˆìŠ¤</li>
 			</ul>
 
 			<ul>
-				<li>°³ÀÎÁ¤º¸ Ã³¸®¹æÄ§</li>
+				<li>ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨</li>
 			</ul>
 			<ul>
-				<li>¾à°ü</li>
+				<li>ì•½ê´€</li>
 			</ul>
 			<ul>
-				<li>¼³Á¤</li>
+				<li>ì„¤ì •</li>
 			</ul>
 			</footer>
 </body>

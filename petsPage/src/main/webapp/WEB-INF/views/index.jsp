@@ -29,10 +29,10 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> 로그인 </a></li>
-			<li><a href="join.jsp">회원가입</a></li>
+			<li><a href="login"> 로그인 </a></li>
+			<li><a href="join">회원가입</a></li>
 			<li>마이페이지</li>
-			<li><a href="ProductServlet?Action=CART">장바구니</a></li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
@@ -40,10 +40,10 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> 님</li>
+			<li><%=dto.getCname()%> 님</li>
 			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
 			<li>마이페이지</li>
-			<li><a href="ProductServlet?Action=CART">장바구니</a></li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
@@ -52,7 +52,7 @@
 <br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br>

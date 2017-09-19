@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -18,20 +18,20 @@
     <br>
     <div id="Nav_menu">
       <ul>
-        <li><a href="./login.jsp"> 로그인 </a> </li>
-        <li><a href="./join.jsp"> 회원가입 </a></li>
+        <li><a href="login"> 로그인 </a> </li>
+        <li><a href="join"> 회원가입 </a></li>
         <li> 마이페이지 </li>
         <li> 장바구니 </li>
       </ul>
     </div>
     <br>
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
       <br><br><br><br><br><br>
     <center>
       <div class="loginForm">
-          <form method="post" action="/loginChk" >
+          <form method="post" action="loginChk" >
              	<div class="box">
                  <input type="text" class="iText"  name="id"  placeholder="아이디 입력하라멍!">
                  <br>
@@ -41,7 +41,7 @@
                      <br>
                         <input type="submit" class="btn" style=" width: 300px; height:40px;" value="로그인">
                         <br><br>
-                    <span class="fright"><a href="searchIdPw.jsp">아이디/비밀번호 찾기</a>&nbsp;|&nbsp;<a href="./join.jsp">회원가입</a></span>
+                    <span class="fright"><a href="searchIdPw.jsp">아이디/비밀번호 찾기</a>&nbsp;|&nbsp;<a href="join">회원가입</a></span>
                  </p>
             </div>
           </form>
