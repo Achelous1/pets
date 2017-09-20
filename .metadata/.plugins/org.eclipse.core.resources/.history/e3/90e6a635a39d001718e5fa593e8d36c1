@@ -1,0 +1,32 @@
+package com.zip4s.pets;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zip4s.pets.dao.IDao;
+import com.zip4s.pets.dto.CustomerDTO;
+import com.zip4s.pets.dto.ProductDTO;
+
+@Controller
+public class CartController {
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	@RequestMapping("/addCart")
+	public String addCart(HttpServletRequest request, ProductDTO product, CustomerDTO customer) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.addToCartDao(product.getPno(), customer.getCno(), Integer.parseInt(request.getParameter("qty")));
+		
+		return "cartcheck";
+	}
+	
+	
+	
+	
+}

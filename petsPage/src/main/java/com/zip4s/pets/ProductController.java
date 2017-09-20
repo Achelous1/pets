@@ -16,6 +16,7 @@ public class ProductController {
 	@Autowired
 	private SqlSession sqlSession;
 	
+<<<<<<< HEAD
 	@RequestMapping("/productDetail")
 	public String productDtail(Model model, HttpServletRequest request) {
 		
@@ -24,6 +25,25 @@ public class ProductController {
 		model.addAttribute("productDetail", dao.getProductDao(pno));
 		
 		return "productDetail";
+=======
+	@RequestMapping("/shopping")
+	public String products(Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("productDetail", dao.getProductListDao());
+		
+		return "shopping";
+	}
+	
+	@RequestMapping("/toyinfo")
+	public String productDdtail(Model model, HttpServletRequest request) {
+		
+		int pno = Integer.parseInt(request.getParameter("pno"));
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("toyinfo", dao.getProductDao(pno));
+		
+		return "toyinfo";
+>>>>>>> jin-dev
 	}
 
 }

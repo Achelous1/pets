@@ -23,7 +23,11 @@ public class CustomerContoller {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		customer = dao.getCustomerDao(id, pw);	
+<<<<<<< HEAD
 		session.setAttribute("customer_info", customer);
+=======
+		session.setAttribute("login_info", customer);
+>>>>>>> jin-dev
 		return "index";
 	}
 	
@@ -43,7 +47,10 @@ public class CustomerContoller {
 	
 	@RequestMapping("/logout")
 	public String logout() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> jin-dev
 		return "logout";
 	}
 
