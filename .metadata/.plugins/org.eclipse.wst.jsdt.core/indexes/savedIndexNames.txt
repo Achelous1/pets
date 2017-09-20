@@ -1,7 +1,5 @@
 INDEX VERSION 1.4+C:\Users\korea\Desktop\pets\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-216321111.index
 3022464593.index
-216321111.index
 229712320.index
 829041111.index
 652771816.index
