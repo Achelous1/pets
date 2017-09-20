@@ -1,0 +1,9 @@
+COLON=\#cfbfad | null | false
+COMMA=\#cfbfad | null | false
+CURLY_BRACE=\#cfbfad | null | false
+OBJECT_KEY=\#cfbfad | null | false
+VALUE_BOOLEAN=\#808bed | null | false
+VALUE_NULL=\#808bed | null | false
+VALUE_NUMBER=\#ffcd8b | null | false
+VALUE_STRING=\#ffcd8b | null | false | true
+eclipse.preferences.version=1
