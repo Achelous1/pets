@@ -48,41 +48,11 @@
 <br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br>
 
-    <center>
-      <div class="dropdown" >
-        <a href="./shopping.jsp"><button class="dropbtn">쇼핑</button></a>
-       
-       <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
-        <div class="dropdown-content">
-	        <input type="submit" id="item" name="item" value="장난감" style="color: black; border: 0px; padding: 12px 37%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="간식" style="color: black; border: 0px; padding: 12px 41%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="의류" style="color: black; border: 0px; padding: 12px 41%; text-decoration: none;
-    display: block;">
-        </div>
-        </form>
-      </div>
-
-      <div class="dropdown" >
-        <a href="info.jsp"><button class="dropbtn">정보</button></a>
-        </div>
-
-      <div class="dropdown" >
-        <a href="./event.jsp"><button class="dropbtn">이벤트</button></a>
-        </div>
-
-      <div class="dropdown" >
-        <a href="./serviceBoard.jsp"><button class="dropbtn">고객센터</button></a>
-      </div>
-    </center>
-
-    <br>
     <center>
       <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
         <div class="dropdown-content">
@@ -101,12 +71,12 @@
       </div>
 
       <div class="dropdown" >
-        <a href="./event.jsp"><button class="dropbtn">이벤트</button></a>
+        <a href="event"><button class="dropbtn">이벤트</button></a>
         </div>
       </div>
 
       <div class="dropdown" >
-        <a href="./serviceBoard.jsp"><button class="dropbtn">고객센터</button></a>
+        <a href="serviceBoard"><button class="dropbtn">고객센터</button></a>
         </div>
       </div>
     </center>
@@ -125,7 +95,7 @@
       <div id="shopimg">
       <div style="border-bottom:1px solid #cccccc;"><h3> 이벤트 </h3></div> <br>
       <center>
-        <span><img src="./img/event.jpg" style="width:70%; height:70%;">
+        <span><img src="resources/img/event.jpg" style="width:70%; height:70%;">
         </span>
 
       <br><br><br><br><br><br><br><br><br><br>
