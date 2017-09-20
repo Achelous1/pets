@@ -1,8 +1,5 @@
 package com.zip4s.pets;
 
-<<<<<<< HEAD
-import org.springframework.stereotype.Controller;
-=======
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +14,10 @@ import com.zip4s.pets.dao.IDao;
 import com.zip4s.pets.dto.CartDTO;
 import com.zip4s.pets.dto.CustomerDTO;
 import com.zip4s.pets.dto.ProductDTO;
->>>>>>> jin-dev
 
 @Controller
 public class CartController {
 
-<<<<<<< HEAD
-=======
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -51,5 +45,4 @@ public class CartController {
 		return "cart";
 	}
 	
->>>>>>> jin-dev
 }
