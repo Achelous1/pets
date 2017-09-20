@@ -21,10 +21,12 @@
 	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
 		if (dto == null) {
 	%>
+
+
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login"> 로그인 </a></li>
-			<li><a href="join">회원가입</a></li>
+			<li><a href="login.jsp"> 로그인 </a></li>
+			<li><a href="join.jsp">회원가입</a></li>
 			<li>마이페이지</li>
 			<li>장바구니</li>
 		</ul>
@@ -43,7 +45,9 @@
 	<%
 		}
 	%>
+
     <br>
+
       <div id="Mainimg">
         <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
@@ -52,7 +56,7 @@
 
     <center>
       <div class="dropdown" >
-        <a href="resources/shopping.jsp"><button class="dropbtn">쇼핑</button></a>
+        <a href="shopping"><button class="dropbtn">쇼핑</button></a>
        
        <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
         <div class="dropdown-content">
@@ -67,39 +71,39 @@
       </div>
 
       <div class="dropdown" >
-        <button class="dropbtn">정보</button>
+        <a href="info"><button class="dropbtn">정보</button></a>
         </div>
       </div>
 
       <div class="dropdown" >
-        <a href="./event.jsp"><button class="dropbtn">이벤트</button></a>
+        <a href="event"><button class="dropbtn">이벤트</button></a>
         </div>
       </div>
 
       <div class="dropdown" >
-        <a href="./serviceBoard.jsp"><button class="dropbtn">고객센터</button></a>
+        <a href="serviceBoard"><button class="dropbtn">고객센터</button></a>
         </div>
       </div>
     </center>
 
     <br>
 
-	<form action="ProductServlet?Action=SRH" method="post">
+<form action="ProductServlet?Action=SRH" method="post">
 		<div class="input-group" style="margin-left: 25%; width: 50%;">
 			<input type="text" class="form-control" name="text"
 				placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
 				<button class="btn btn-secondary" type="submit">찾기</button>
 			</span>
 		</div>
-	</form>
 	<br><br><br>
-    <div id="shopimg">
+
+      <div id="shopimg">
       <div style="border-bottom:1px solid #cccccc;"><h3> 장난감 </h3></div> <br>
       <center>
-        <span><img src="resources/img/toy-1.jpg" style="width:20%; height:20%;"></span>
-        <span><a href="toyinfo"><img src="resources/img/toy-2.jpg" style="width:20%; height:20%;"></a></span>
-        <span><img src="resources/img/toy-3.jpg" style="width:20%; height:20%;"></span>
-        <span><img src="resources/img/toy-4.jpg" style="width:20%; height:20%;"></span>
+        <span><img src="./img/toy-1.jpg" style="width:20%; height:20%;"></span>
+        <span><a href="./toyinfo.jsp"><img src="./img/toy-2.jpg" style="width:20%; height:20%;"></a></span>
+        <span><img src="./img/toy-3.jpg" style="width:20%; height:20%;"></span>
+        <span><img src="./img/toy-4.jpg" style="width:20%; height:20%;"></span>
         <div>
           <span>찍찍낚시</span>
           <span style="margin-left:17%; margin-right:5%;">카샤카샤</span>
@@ -119,10 +123,10 @@
     <div id="shopimg">
     <div style="border-bottom:1px solid #cccccc;"><h3> 애완동물 옷 </h3></div> <br>
     <center>
-      <span><img src="resources/img/clothes-1.jpg" style="width:20%; height:20%; margin:1%;"></span>
-      <span><img src="resources/img/clothes-2.jpg" style="width:20%; height:20%; margin:1%;"></span>
-      <span><img src="resources/img/clothes-3.jpg" style="width:20%; height:20%; margin:1%;"></span>
-      <span><img src="resources/img/clothes-4.jpg" style="width:20%; height:20%; margin:1%;"></span>
+      <span><img src="./img/clothes-1.jpg" style="width:20%; height:20%; margin:1%;"></span>
+      <span><img src="./img/clothes-2.jpg" style="width:20%; height:20%; margin:1%;"></span>
+      <span><img src="./img/clothes-3.jpg" style="width:20%; height:20%; margin:1%;"></span>
+      <span><img src="./img/clothes-4.jpg" style="width:20%; height:20%; margin:1%;"></span>
       <div>
         <span>하와이원</span>
         <span style="margin-left:18%; margin-right:6%;">하와이투</span>
@@ -143,10 +147,10 @@
   <div id="shopimg">
   <div style="border-bottom:1px solid #cccccc;"><h3> 간식 </h3></div> <br>
   <center>
-    <span><img src="resources/img/food-1.jpg" style="width:20%; height:20%; margin:1%;"></span>
-    <span><img src="resources/img/food-2.jpg" style="width:20%; height:20%; margin:1%;"></span>
-    <span><img src="resources/img/food-3.jpg" style="width:20%; height:20%; margin:1%;"></span>
-    <span><img src="resources/img/food-4.jpg" style="width:20%; height:20%; margin:1%;"></span>
+    <span><img src="./img/food-1.jpg" style="width:20%; height:20%; margin:1%;"></span>
+    <span><img src="./img/food-2.jpg" style="width:20%; height:20%; margin:1%;"></span>
+    <span><img src="./img/food-3.jpg" style="width:20%; height:20%; margin:1%;"></span>
+    <span><img src="./img/food-4.jpg" style="width:20%; height:20%; margin:1%;"></span>
     <div>
       <span>시원우유</span>
       <span style="margin-left:18%; margin-right:6%;">츄로스으</span>
@@ -161,6 +165,7 @@
     </div>
   </div>
 </center>
+
       <br><br><br><br><br><br><br><br><br><br>
       <legend></legend>
       <footer>
