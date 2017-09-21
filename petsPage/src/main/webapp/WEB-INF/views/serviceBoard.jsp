@@ -98,10 +98,10 @@
       <div style="border-bottom:1px solid #cccccc;"><h3>고객센터</h3></div>
       <br><br>
       <center>
-        <span><a href="list.jsp"><img src="./img/QA2.jpg" style="width:30%; height:30%;"></a>
-        <img src="reosurces/img/QA.jpg" style="width:30%; height:30%;"></span>
+        <span><a href="list"><img src="resources/img/QA2.jpg" style="width:30%; height:30%;"></a>
+        <img src="resources/img/QA.jpg" style="width:30%; height:30%;"></span>
       <br><br><br><br><br><br>
-      <span><img src="resources/img/후기.jpg" style="width:30%; height:30%;"><img src="./img/후기2.jpg" style="width:30%; height:30%;"></span>
+      <span><img src="resources/img/후기.jpg" style="width:30%; height:30%;"><img src="resources/img/후기2.jpg" style="width:30%; height:30%;"></span>
       </center>
 
       <br><br><br><br><br><br><br><br><br>

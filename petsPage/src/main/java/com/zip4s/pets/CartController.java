@@ -36,13 +36,31 @@ public class CartController {
 	@RequestMapping("/cart")
 	public String cart(HttpServletRequest request, Model model) {
 		
+		String param = request.getParameter("cno");
+		int cno = Integer.parseInt(param);
+		
 		//Cart 테이블에서 장바구니 정보 가지고 오는 코드
 		IDao dao = sqlSession.getMapper(IDao.class);
-		ArrayList<CartDTO> cartList = dao.getCartList(Integer.parseInt(request.getParameter("cno")));
+		ArrayList<CartDTO> cartList = dao.getCartList(cno);
 		
 		model.addAttribute("list_cart", cartList);
 		
 		return "cart";
 	}
+	
+	@RequestMapping("/cartDelete")
+	public String cartDelete(HttpServletRequest request, Model model) {
+		
+		int pno = Integer.parseInt(request.getParameter("pno"));
+		int cno = Integer.parseInt(request.getParameter("cno"));
+		
+		//Cart 테이블에서 장바구니 정보 지우는 코드
+		IDao dao = sqlSession.getMapper(IDao.class);
+		dao.deleteCartItemDao(pno, cno);
+		
+		
+		return "cart";
+	}
+	
 	
 }

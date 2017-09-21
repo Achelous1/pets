@@ -20,7 +20,7 @@
 		<%
 		CustomerDTO dto = (CustomerDTO)request.getAttribute("searchId");
 		String user_id=dto.getId();
-		String user_name=dto.getName();
+		String user_name=dto.getCname();
 		
 		if (user_name.equals("-1")) {
 		%>

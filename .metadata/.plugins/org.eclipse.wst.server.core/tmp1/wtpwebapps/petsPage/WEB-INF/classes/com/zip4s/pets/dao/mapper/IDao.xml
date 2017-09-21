@@ -63,7 +63,7 @@
 	
 	<!-- delete문 -->
 	<delete id="deleteCartItemDao">
-		DELETE FROM CART
+		DELETE FROM CART WHERE PNO = #{param1} AND CNO = #{param2}
 	</delete>
 	
 	<!-- Product Control -->
@@ -85,6 +85,9 @@
 	<insert id="addProductDao">
 		INSERT INTO PRODUCT (PNO, ITEM, NAME, PRICE, PIMG, PIMG2) VALUES (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
 	</insert>
-	
+	<!-- Product 검색 기능 -->
+	<select id="searchProductDao">
+		SELECT * FROM PRODUCT WHERE PNAME LIKE '%#{param1}%';
+	</select>
 	
 </mapper>

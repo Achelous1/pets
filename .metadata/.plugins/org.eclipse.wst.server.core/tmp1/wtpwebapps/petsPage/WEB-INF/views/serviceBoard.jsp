@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -25,8 +25,8 @@
 
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> 로그인 </a></li>
-			<li><a href="join.jsp">회원가입</a></li>
+			<li><a href="login"> 로그인 </a></li>
+			<li><a href="join">회원가입</a></li>
 			<li>마이페이지</li>
 			<li>장바구니</li>
 		</ul>
@@ -36,8 +36,8 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> 님</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
+			<li><%=dto.getCname()%> 님</li>
+			<li><a href="logout"> 로그아웃 </a></li>
 			<li>마이페이지</li>
 			<li>장바구니</li>
 		</ul>
@@ -49,14 +49,14 @@
     <br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br>
 
     <center>
       <div class="dropdown" >
-        <a href="./shopping.jsp"><button class="dropbtn">쇼핑</button></a>
+        <a href="shopping"><button class="dropbtn">쇼핑</button></a>
        
        <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
         <div class="dropdown-content">
@@ -70,15 +70,15 @@
         </form>
       </div>
       <div class="dropdown" >
-        <button class="dropbtn">정보</button>
+        <a href="info"><button class="dropbtn">정보</button></a>
         </div>
 
       <div class="dropdown" >
-        <a href="./event.jsp"><button class="dropbtn">이벤트</button></a>
+        <a href="event"><button class="dropbtn">이벤트</button></a>
         </div>
 
       <div class="dropdown" >
-        <a href="#"><button class="dropbtn">고객센터</button></a>
+        <a href="serviceBoard"><button class="dropbtn">고객센터</button></a>
       </div>
     </center>
 
@@ -98,10 +98,10 @@
       <div style="border-bottom:1px solid #cccccc;"><h3>고객센터</h3></div>
       <br><br>
       <center>
-        <span><a href="list.jsp"><img src="./img/QA2.jpg" style="width:30%; height:30%;"></a>
-        <img src="./img/QA.jpg" style="width:30%; height:30%;"></span>
+        <span><a href="list"><img src="resources/img/QA2.jpg" style="width:30%; height:30%;"></a>
+        <img src="resources/img/QA.jpg" style="width:30%; height:30%;"></span>
       <br><br><br><br><br><br>
-      <span><img src="./img/후기.jpg" style="width:30%; height:30%;"><img src="./img/후기2.jpg" style="width:30%; height:30%;"></span>
+      <span><img src="resources/img/후기.jpg" style="width:30%; height:30%;"><img src="resources/img/후기2.jpg" style="width:30%; height:30%;"></span>
       </center>
 
       <br><br><br><br><br><br><br><br><br>

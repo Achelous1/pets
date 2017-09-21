@@ -98,18 +98,17 @@
       <div style="border-bottom:1px solid #cccccc;"><h3>정보</h3></div>
       <br><br>
       <center>
-        <span><img src="resources/img/training.jpg" style="width:30%; height:30%;"><img src="./img/training2.jpg" style="width:30%; height:30%;">
+        <span><img src="resources/img/training.jpg" style="width:30%; height:30%;"><img src="resources/img/training2.jpg" style="width:30%; height:30%;">
         </span>
       <br><br><br><br><br><br>
-      <span><img src="resources/img/massage.jpg" style="width:30%; height:30%;"><img src="./img/massage2.jpg" style="width:30%; height:30%;"></span>
+      <span><img src="resources/img/massage.jpg" style="width:30%; height:30%;"><img src="resources/img/massage2.jpg" style="width:30%; height:30%;"></span>
       <br><br><br><br><br><br>
-      <span><img src="resources/img/inoculation.jpg" style="width:30%; height:30%;"><img src="./img/inoculation2.jpg" style="width:30%; height:30%;"></span>
+      <span><img src="resources/img/inoculation.jpg" style="width:30%; height:30%;"><img src="resources/img/inoculation2.jpg" style="width:30%; height:30%;"></span>
       </center>
 
 
 
       <br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <legend></legend>
       <footer>
         <ul>
           <li>광고</li>
