@@ -17,16 +17,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Pet's</title>
     <%
-		ArrayList<ProductDTO> list = (ArrayList<ProductDTO>) request.getAttribute("item_info");
-		
-	ProductDTO pdto = list.get(0);
+		ProductDTO pdto = (ProductDTO) request.getAttribute("item_info");
 		
 		int pno = pdto.getPno();
-		String name = pdto.getName();
+		String name = pdto.getPname();
 		String img = pdto.getPimg();
 		String img2 = pdto.getPimg2();
 		int price = pdto.getPrice();
-		int qty = pdto.getQty();
 	%>
 	
 
@@ -117,14 +114,14 @@
 
 
 
-	<div><img src="<%=img %>" style="margin-left:10%;"></img>
+	<div><img src="<%= img %>" style="margin-left:10%;"></img>
         <div style="float:right; margin-right:30%;">
           <br><br>
           <h5>상품명</h5>
-          <h3><%=name %></h3>
+          <h3><%= name %></h3>
           <br><br>
           <h5>가격</h5>
-          <h3><%=price %>원</h3>
+          <h3><%= price %>원</h3>
           <br><br>
           <h5>수량</h5>
           <table>
@@ -132,7 +129,7 @@
             <tbody>
               <tr>
                 <td>
-                 <input type="text" name="ea" class="form" size="2" value="<%=qty %>" maxlength="2" onblur="numcheck(this.form.ea.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};">
+                 <input type="text" name="ea" class="form" size="2" value="0" maxlength="2" onblur="numcheck(this.form.ea.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};">
                </td><td valign="middle" height="30">
                    <input type="button" value="▲" onclick="up(this.form.ea.value,10)"
                    style="background-color:white; border:0; height:14px; font-size:12px " name="plus">

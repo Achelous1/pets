@@ -24,19 +24,21 @@ public class ProductController {
 	public String products(Model model) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("productDetail", dao.getProductListDao());
+		model.addAttribute("product_list", dao.getProductListDao());
+		
+		System.out.println(dao.getProductListDao());
 		
 		return "shopping";
 	}
 	
-	@RequestMapping("/toyinfo")
+	@RequestMapping("/iteminfo")
 	public String productDdtail(Model model, HttpServletRequest request) {
 		
 		int pno = Integer.parseInt(request.getParameter("pno"));
 		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("toyinfo", dao.getProductDao(pno));
+		model.addAttribute("item_info", dao.getProductDao(pno));
 		
-		return "toyinfo";
+		return "iteminfo";
 	}
 	
 	@RequestMapping("/search")

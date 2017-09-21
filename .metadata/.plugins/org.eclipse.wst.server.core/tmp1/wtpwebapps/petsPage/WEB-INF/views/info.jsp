@@ -16,19 +16,18 @@
     <title>Pet's</title>
   </head>
   <body>
-<br>
+
+	<br>
 	<%
-	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
+		CustomerDTO dto = (CustomerDTO)session.getAttribute("login_info");
 		if (dto == null) {
 	%>
-
-
 	<div id="Nav_menu">
 		<ul>
 			<li><a href="login"> 로그인 </a></li>
 			<li><a href="join">회원가입</a></li>
 			<li>마이페이지</li>
-			<li>장바구니</li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
@@ -39,13 +38,13 @@
 			<li><%=dto.getCname()%> 님</li>
 			<li><a href="logout"> 로그아웃 </a></li>
 			<li>마이페이지</li>
-			<li>장바구니</li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
 		}
 	%>
-<br>
+	<br>
 
       <div id="Mainimg">
         <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
@@ -55,23 +54,19 @@
 
     <center>
       <div class="dropdown" >
-        <a href="resources/shopping.jsp"><button class="dropbtn">쇼핑</button></a>
-       
-       <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
-        <div class="dropdown-content">
-	        <input type="submit" id="item" name="item" value="장난감" style="color: black; border: 0px; padding: 12px 36%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="간식" style="color: black; border: 0px; padding: 12px 40%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="의류" style="color: black; border: 0px; padding: 12px 40%; text-decoration: none;
-    display: block;">
-        </div>
-        </form>
+        <button class="dropbtn dropdown-toggle" data-toggle="dropdown">쇼핑 <span class="caret"></span></button>
+     	<ul class="dropdown-menu">
+     	  <li><a href="shopping">전체상품 보기</a></li>
+     	  <li class="divider"></li>
+		  <li><a href="shopping?item=toy">장난감</a></li>
+		  <li><a href="shopping?item=cloth">옷</a></li>
+		  <li><a href="shopping?item=snack">간식</a></li>
+		</ul>
       </div>
 
       <div class="dropdown" >
         <a href="info"><button class="dropbtn">정보</button></a>
-      </div>
+        </div>
 
       <div class="dropdown" >
         <a href="event"><button class="dropbtn">이벤트</button></a>
@@ -83,17 +78,14 @@
     </center>
 
     <br>
-
-	<form action="ProductServlet?Action=SRH" method="post">
+	<form action="search" method="get">
 		<div class="input-group" style="margin-left: 25%; width: 50%;">
-			<input type="text" class="form-control" name="text"
-				placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
+			<input type="text" class="form-control" name="searchStr" placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
 				<button class="btn btn-secondary" type="submit">찾기</button>
 			</span>
 		</div>
 	</form>
       <br><br><br>
-
       <div id="shopimg">
       <div style="border-bottom:1px solid #cccccc;"><h3>정보</h3></div>
       <br><br>
@@ -105,9 +97,8 @@
       <br><br><br><br><br><br>
       <span><img src="resources/img/inoculation.jpg" style="width:30%; height:30%;"><img src="resources/img/inoculation2.jpg" style="width:30%; height:30%;"></span>
       </center>
-
-
-
+      </div>
+      
       <br><br><br><br><br><br><br><br><br><br><br><br><br>
       <footer>
         <ul>
@@ -130,12 +121,5 @@
           <li>설정</li>
         </ul>
       </footer>
-
-
-
-
-
-
-
   </body>
 </html>

@@ -9,7 +9,7 @@ import com.zip4s.pets.dto.ProductDTO;
 
 public interface IDao {
 	//유저 DAO
-	public CustomerDTO getCustomerDao(String id, String pw);
+	public CustomerDTO getCustomerDao(String id, String pw) throws NullPointerException;
 	public void addCustomerDao(String id, String pw, String cname, String phone, String addr);
 	public void deleteCustomerDao(String id);
 	
