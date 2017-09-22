@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Pet's</title>
   </head>
-  <body>
+<body>
 
 	<br>
 	<%
@@ -62,7 +62,7 @@
      	  <li><a href="shopping">전체상품 보기</a></li>
      	  <li class="divider"></li>
 		  <li><a href="shopping?item=toy">장난감</a></li>
-		  <li><a href="shopping?item=cloth">옷</a></li>
+		  <li><a href="shopping?item=clothes">옷</a></li>
 		  <li><a href="shopping?item=snack">간식</a></li>
 		</ul>
       </div>
@@ -120,8 +120,8 @@
 	        <c:forEach var="items" varStatus="status" items="${product_list}">
 	        	<c:if test="${ items.item == 'clothes' }">
 				<div class="col-sm-3">
-				<a href="iteminfo?pno=${ items.pno }"><img src="${ items.pimg }" alt="${ items.pname }" style="width:100%; height:auto;"></a>
-			    <div>
+					<a href="iteminfo?pno=${ items.pno }"><img src="${ items.pimg }" alt="${ items.pname }" style="width:100%; height:auto;"></a>
+			    	<div>
 			          <span>${ items.pname }</span>
 			          <p>${ items.price }원</p>
 			        </div>

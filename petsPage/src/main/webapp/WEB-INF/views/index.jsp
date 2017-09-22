@@ -61,7 +61,7 @@
      	  <li><a href="shopping">전체상품 보기</a></li>
      	  <li class="divider"></li>
 		  <li><a href="shopping?item=toy">장난감</a></li>
-		  <li><a href="shopping?item=cloth">옷</a></li>
+		  <li><a href="shopping?item=clothes">옷</a></li>
 		  <li><a href="shopping?item=snack">간식</a></li>
 		</ul>
       </div>

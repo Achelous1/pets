@@ -3,6 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -64,7 +65,7 @@
      	  <li><a href="shopping">전체상품 보기</a></li>
      	  <li class="divider"></li>
 		  <li><a href="shopping?item=toy">장난감</a></li>
-		  <li><a href="shopping?item=cloth">옷</a></li>
+		  <li><a href="shopping?item=clothes">옷</a></li>
 		  <li><a href="shopping?item=snack">간식</a></li>
 		</ul>
       </div>
@@ -90,45 +91,40 @@
 			</span>
 		</div>
 	</form>
-	
-	<%ArrayList<ProductDTO> list = (ArrayList<ProductDTO>)request.getAttribute("product_info");
-	String keyword=(String)request.getAttribute("keyword"); %>
-<div id="shopimg">
-      <div style="border-bottom:1px solid #cccccc;"><h3> <%=keyword %> </h3></div> <br>
-      <center>
-	
-
-			<%
-				if (list.size() == 0) {
-			%>
-			<center>
-				<h3>일치하는 결과가 없습니다.</h3>
-			</center>
-			<%
-				}
-
-				int br = 0;
-				for (int i = 0; i < list.size(); i++) {
-					ProductDTO pdto = list.get(i);
-
-					String img = pdto.getPimg();
-					String pname = pdto.getName();
-					int price = pdto.getPrice();
-			%>
-
-			<a href="ProductServlet?Action=Item_Info"><div
-					style="float: left; width: 20%; height: 32%; margin:0 25px 30px;">
-					<img src="<%=img%>" style="width: 100%; height: 50%;"><br><%=pname%><br><%=price%>원
-				</div></a>
-			<%
-				br++;
-					if (br % 4 == 0) {
-			%>
+	<br><br><br>
+	<%
+		String keyword=(String)request.getAttribute("item"); 
+	%>
+      <div id="shopimg" class="row" style="align-content:center;">
+        <div style="border-bottom:1px solid #cccccc; margin-bottom:20px;">
+      	  <h3> <%= keyword %> </h3>
+        </div>
+		       	<center>
+		        <div style="text-align:center;">
+		        	<!-- jstl 태그 사용하여 검색결과 없을 경우와 있을 경우에 동적으로 검색결과 노출 -->
+					<c:choose>
+					
+					    <c:when test="${product_list.size() == 0}">
+					        <h3>일치하는 결과가 없습니다.</h3>
+					    </c:when>
+					    <c:when test="${ !product_list.isEmpty() }">
+					        <c:forEach var="items" varStatus="status" items="${product_list}">
+								<div class="col-sm-3">
+								<a href="iteminfo?pno=${ items.pno }"><img src="${ items.pimg }" alt="${ items.pname }" style="width:100%; height:auto;"></a>
+							    <div>
+							          <span>${ items.pname }</span>
+							          <p>${ items.price }원</p>
+							        </div>
+						        </div>
+							</c:forEach>
+					    </c:when>
+					    
+					</c:choose>	        	
+		        </div>
+		        </center>
+		      </div>
 			<br>
-			<%		}
-			}
-		%></div>
-	</center>
+	</div>
 <br>
 	<br>
 	<br>

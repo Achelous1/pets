@@ -29,4 +29,5 @@ public interface IDao {
 	public ProductDTO getProductDao(int pno);
 	public ArrayList<ProductDTO> getProductListDao();
 	public ArrayList<ProductDTO> searchProductDao(String searchStr);
+	public ArrayList<ProductDTO> selectByItemDao(String item);
 }

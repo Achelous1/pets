@@ -21,14 +21,23 @@ public class ProductController {
 	private SqlSession sqlSession;
 	
 	@RequestMapping("/shopping")
-	public String products(Model model) {
+	public String products(Model model, HttpServletRequest request) {
 		
+		String item = request.getParameter("item");
+		String viewPage = null;
 		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("product_list", dao.getProductListDao());
 		
-		System.out.println(dao.getProductListDao());
-		
-		return "shopping";
+		if(item == null || item =="") {
+			model.addAttribute("product_list", dao.getProductListDao());
+			viewPage = "shopping";
+		} else if(!item.isEmpty()) {
+			model.addAttribute("product_list", dao.selectByItemDao(item));
+			if(item.equals("toy")) { request.setAttribute("item", "장난감"); }
+			else if(item.equals("clothes")) { request.setAttribute("item", "옷"); }
+			else if(item.equals("snack")) { request.setAttribute("item", "간식"); }
+			viewPage = "searchItemList";
+		}
+		return viewPage;
 	}
 	
 	@RequestMapping("/iteminfo")
@@ -44,13 +53,15 @@ public class ProductController {
 	@RequestMapping("/search")
 	public String search(Model model, HttpServletRequest request) {
 		
-		ArrayList<ProductDTO> product_info = null;
 		String searchStr = request.getParameter("searchStr");
-		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		product_info = dao.searchProductDao(searchStr);
+		ArrayList<ProductDTO> product_list = dao.searchProductDao(searchStr);
 		
-		model.addAttribute("product_info", product_info);
+		System.out.println(searchStr);
+		System.out.println(product_list);
+		
+		request.setAttribute("item", searchStr);
+		model.addAttribute("product_list", product_list);
 		
 		return "searchItemList";
 	}
