@@ -14,7 +14,7 @@ public interface IDao {
 	public void deleteCustomerDao(String id);
 	
 	//게시판 DAO
-	public ArrayList<BoardDTO> getBoardListDao();
+	public ArrayList<BoardDTO> getBoardListDao(int page);
 	public void writeBoardDao(String subject, String id, String pw, String content);
 	public BoardDTO getBoardDao(int bno);
 	public void deleteBoardDao(int bno);

@@ -26,7 +26,7 @@
 	<!-- Board Control -->
 	<!-- board list select문 -->
 	<select id="getBoardListDao" resultType="com.zip4s.pets.dto.BoardDTO">
-		SELECT * FROM BOARD ORDER BY MID DESC
+		SELECT * FROM BOARD ORDER BY REF DESC, STEP ASC, WRITE_DATE DESC LIMIT (${param1} -1)*10, 10
 	</select>
 	
 	<!-- 게시글 select문 -->

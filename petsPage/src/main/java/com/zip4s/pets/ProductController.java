@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zip4s.pets.dao.IDao;
 import com.zip4s.pets.dto.ProductDTO;
+
 
 @Controller
 public class ProductController {
@@ -50,7 +52,7 @@ public class ProductController {
 		return "iteminfo";
 	}
 	
-	@RequestMapping("/search")
+	@RequestMapping(value = "/search", produces="text/plain;charset=UTF-8", method=RequestMethod.GET)
 	public String search(Model model, HttpServletRequest request) {
 		
 		String searchStr = request.getParameter("searchStr");
