@@ -37,8 +37,19 @@ public class HomeController {
 		return "join";
 	}
 	
-	@RequestMapping(value = "/cart")
-	public String cart() {
-		return "cart";
+	@RequestMapping(value = "/info")
+	public String info() {
+		return "info";
 	}
+
+	@RequestMapping(value = "/event")
+	public String event() {
+		return "event";
+	}
+	
+	@RequestMapping(value = "/serviceBoard")
+	public String serviceBoard() {
+		return "serviceBoard";
+	}
+
 }

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -17,36 +17,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Pet's</title>
     <%
-		ArrayList<ProductDTO> list = (ArrayList<ProductDTO>) request.getAttribute("item_info");
-		
-	ProductDTO pdto = list.get(0);
+		ProductDTO pdto = (ProductDTO) request.getAttribute("item_info");
 		
 		int pno = pdto.getPno();
-		String name = pdto.getName();
+		String name = pdto.getPname();
 		String img = pdto.getPimg();
 		String img2 = pdto.getPimg2();
 		int price = pdto.getPrice();
-		int qty = pdto.getQty();
 	%>
 	
 
   </head>
-  <body>
-  
-  
-    <br>
+<body>
+
+	<br>
 	<%
-	CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
+		CustomerDTO dto = (CustomerDTO)session.getAttribute("login_info");
 		if (dto == null) {
 	%>
-
-
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> 로그인 </a></li>
-			<li><a href="join.jsp">회원가입</a></li>
+			<li><a href="login"> 로그인 </a></li>
+			<li><a href="join">회원가입</a></li>
 			<li>마이페이지</li>
-			<li>장바구니</li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
@@ -54,58 +48,52 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> 님</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
+			<li><%=dto.getCname()%> 님</li>
+			<li><a href="logout"> 로그아웃 </a></li>
 			<li>마이페이지</li>
-			<li>장바구니</li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
 		}
 	%>
-
-    <br>
+	<br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br>
 
     <center>
       <div class="dropdown" >
-        <a href="./shopping.jsp"><button class="dropbtn">쇼핑</button></a>
-       
-       <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
-        <div class="dropdown-content">
-	        <input type="submit" id="item" name="item" value="장난감" style="color: black; border: 0px; padding: 12px 36%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="간식" style="color: black; border: 0px; padding: 12px 40%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="의류" style="color: black; border: 0px; padding: 12px 40%; text-decoration: none;
-    display: block;">
-        </div>
-        </form>
+        <button class="dropbtn dropdown-toggle" data-toggle="dropdown">쇼핑 <span class="caret"></span></button>
+     	<ul class="dropdown-menu">
+     	  <li><a href="shopping">전체상품 보기</a></li>
+     	  <li class="divider"></li>
+		  <li><a href="shopping?item=toy">장난감</a></li>
+		  <li><a href="shopping?item=clothes">옷</a></li>
+		  <li><a href="shopping?item=snack">간식</a></li>
+		</ul>
       </div>
 
       <div class="dropdown" >
-        <a href="info.jsp"><button class="dropbtn">정보</button></a>
+        <a href="info"><button class="dropbtn">정보</button></a>
         </div>
 
       <div class="dropdown" >
-        <a href="./event.jsp"><button class="dropbtn">이벤트</button></a>
+        <a href="event"><button class="dropbtn">이벤트</button></a>
         </div>
 
       <div class="dropdown" >
-        <a href="./serviceBoard.jsp"><button class="dropbtn">고객센터</button></a>
+        <a href="serviceBoard"><button class="dropbtn">고객센터</button></a>
       </div>
     </center>
 
     <br>
-	<form action="ProductServlet?Action=SRH" method="post">
+	<form action="search" method="get">
 		<div class="input-group" style="margin-left: 25%; width: 50%;">
-			<input type="text" class="form-control" name="text"
-				placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
+			<input type="text" class="form-control" name="searchStr" placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
 				<button class="btn btn-secondary" type="submit">찾기</button>
 			</span>
 		</div>
@@ -113,18 +101,14 @@
 
       <br><br><br><br>
 
-
-
-
-
-	<div><img src="<%=img %>" style="margin-left:10%;"></img>
+	<div><img src="<%= img %>" style="margin-left:10%;"></img>
         <div style="float:right; margin-right:30%;">
           <br><br>
           <h5>상품명</h5>
-          <h3><%=name %></h3>
+          <h3><%= name %></h3>
           <br><br>
           <h5>가격</h5>
-          <h3><%=price %>원</h3>
+          <h3><%= price %>원</h3>
           <br><br>
           <h5>수량</h5>
           <table>
@@ -132,7 +116,7 @@
             <tbody>
               <tr>
                 <td>
-                 <input type="text" name="ea" class="form" size="2" value="<%=qty %>" maxlength="2" onblur="numcheck(this.form.ea.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};">
+                 <input type="text" name="ea" class="form" size="2" value="0" maxlength="2" onblur="numcheck(this.form.ea.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};">
                </td><td valign="middle" height="30">
                    <input type="button" value="▲" onclick="up(this.form.ea.value,10)"
                    style="background-color:white; border:0; height:14px; font-size:12px " name="plus">

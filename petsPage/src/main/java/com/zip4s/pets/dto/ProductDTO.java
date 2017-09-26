@@ -4,7 +4,7 @@ public class ProductDTO {
 
 	private int pno;
 	private String item;
-	private String name;
+	private String pname;
 	private int price;
 	private String pimg;
 	private String pimg2;
@@ -20,7 +20,7 @@ public class ProductDTO {
 		super();
 		this.pno = pno;
 		this.item = item;
-		this.name = name;
+		this.pname = name;
 		this.price = price;
 		this.pimg = pimg;
 		this.pimg2 = pimg2;
@@ -43,12 +43,12 @@ public class ProductDTO {
 		this.item = item;
 	}
 
-	public String getName() {
-		return name;
+	public String getPname() {
+		return pname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 
 	public int getPrice() {
@@ -85,7 +85,7 @@ public class ProductDTO {
 
 	@Override
 	public String toString() {
-		return "ProductDTO [pno=" + pno + ", item=" + item + ", name=" + name + ", price=" + price + ", pimg=" + pimg
+		return "ProductDTO [pno=" + pno + ", item=" + item + ", name=" + pname + ", price=" + price + ", pimg=" + pimg
 				+ ", pimg2=" + pimg2 + ", qty=" + qty + "]";
 	}
 

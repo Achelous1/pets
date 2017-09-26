@@ -15,6 +15,8 @@ public class CustomerContoller {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
+	private String viewPage = null;
 
 	@RequestMapping(value = "/loginChk", method = RequestMethod.POST)
 	public String loginChk(CustomerDTO customer, HttpSession session) {
@@ -22,9 +24,17 @@ public class CustomerContoller {
 		String pw = customer.getPw(); 
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		customer = dao.getCustomerDao(id, pw);	
-		session.setAttribute("login_info", customer);
-		return "index";
+		//login fail control
+		try {
+			customer = dao.getCustomerDao(id, pw);
+			viewPage = "index";
+			session.setAttribute("login_info", customer);
+		} catch(Exception e) {
+			e.printStackTrace();
+			viewPage = "loginfail";
+		}
+		
+		return viewPage;
 	}
 	
 	@RequestMapping(value = "/signupChk", method = RequestMethod.POST)

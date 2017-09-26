@@ -40,7 +40,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="resources/css/style.css">
 <!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -72,7 +72,7 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> 님</li>
+			<li><%=dto.getCname()%> 님</li>
 			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
 			<li>마이페이지</li>
 			<li>장바구니</li>

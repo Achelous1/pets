@@ -3,6 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="resources/css/style.css">
 <!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,19 +22,18 @@
 <title>Pet's</title>
 </head>
 <body>
-<br>
+
+	<br>
 	<%
-		CustomerDTO dto = (CustomerDTO) session.getAttribute("login_info");
+		CustomerDTO dto = (CustomerDTO)session.getAttribute("login_info");
 		if (dto == null) {
 	%>
-
-
 	<div id="Nav_menu">
 		<ul>
-			<li><a href="login.jsp"> 로그인 </a></li>
-			<li><a href="join.jsp">회원가입</a></li>
+			<li><a href="login"> 로그인 </a></li>
+			<li><a href="join">회원가입</a></li>
 			<li>마이페이지</li>
-			<li>장바구니</li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
@@ -41,100 +41,90 @@
 	%>
 	<div id="Nav_menu">
 		<ul>
-			<li><%=dto.getName()%> 님</li>
-			<li><a href="MemberServlet?Action=LOGOUT"> 로그아웃 </a></li>
+			<li><%=dto.getCname()%> 님</li>
+			<li><a href="logout"> 로그아웃 </a></li>
 			<li>마이페이지</li>
-			<li>장바구니</li>
+			<li><a href="cart">장바구니</a></li>
 		</ul>
 	</div>
 	<%
 		}
 	%>
-<br>
+	<br>
 
-	<div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+      <div id="Mainimg">
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br>
 
     <center>
       <div class="dropdown" >
-        <a href="./shopping.jsp"><button class="dropbtn">쇼핑</button></a>
-       
-       <form id="itemForm" action="ProductServlet?Action=ITEM" method="post">
-        <div class="dropdown-content">
-	        <input type="submit" id="item" name="item" value="장난감" style="color: black; border: 0px; padding: 12px 36%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="간식" style="color: black; border: 0px; padding: 12px 40%; text-decoration: none;
-    display: block;">
-	        <input type="submit" id="item" name="item" value="의류" style="color: black; border: 0px; padding: 12px 40%; text-decoration: none;
-    display: block;">
-        </div>
-        </form>
+        <button class="dropbtn dropdown-toggle" data-toggle="dropdown">쇼핑 <span class="caret"></span></button>
+     	<ul class="dropdown-menu">
+     	  <li><a href="shopping">전체상품 보기</a></li>
+     	  <li class="divider"></li>
+		  <li><a href="shopping?item=toy">장난감</a></li>
+		  <li><a href="shopping?item=clothes">옷</a></li>
+		  <li><a href="shopping?item=snack">간식</a></li>
+		</ul>
       </div>
 
       <div class="dropdown" >
-        <a href="info.jsp"><button class="dropbtn">정보</button></a>
+        <a href="info"><button class="dropbtn">정보</button></a>
         </div>
 
       <div class="dropdown" >
-        <a href="./event.jsp"><button class="dropbtn">이벤트</button></a>
+        <a href="event"><button class="dropbtn">이벤트</button></a>
         </div>
 
       <div class="dropdown" >
-        <a href="./serviceBoard.jsp"><button class="dropbtn">고객센터</button></a>
+        <a href="serviceBoard"><button class="dropbtn">고객센터</button></a>
       </div>
     </center>
-      <br><br>
-	<form action="ProductServlet?Action=SRH" method="post">
+
+    <br>
+	<form action="search" method="get">
 		<div class="input-group" style="margin-left: 25%; width: 50%;">
-			<input type="text" class="form-control" name="text"
-				placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
+			<input type="text" class="form-control" name="searchStr" placeholder="찾을 물건을 검색하라멍!"> <span class="input-group-btn">
 				<button class="btn btn-secondary" type="submit">찾기</button>
 			</span>
 		</div>
 	</form>
-	
-	
-	<%ArrayList<ProductDTO> list = (ArrayList<ProductDTO>)request.getAttribute("product_info");
-	String keyword=(String)request.getAttribute("keyword"); %>
-<div id="shopimg">
-      <div style="border-bottom:1px solid #cccccc;"><h3> <%=keyword %> </h3></div> <br>
-      <center>
-	
-
-			<%
-				if (list.size() == 0) {
-			%>
-			<center>
-				<h3>일치하는 결과가 없습니다.</h3>
-			</center>
-			<%
-				}
-
-				int br = 0;
-				for (int i = 0; i < list.size(); i++) {
-					ProductDTO pdto = list.get(i);
-
-					String img = pdto.getPimg();
-					String pname = pdto.getName();
-					int price = pdto.getPrice();
-			%>
-
-			<a href="ProductServlet?Action=Item_Info"><div
-					style="float: left; width: 20%; height: 32%; margin:0 25px 30px;">
-					<img src="<%=img%>" style="width: 100%; height: 50%;"><br><%=pname%><br><%=price%>원
-				</div></a>
-			<%
-				br++;
-					if (br % 4 == 0) {
-			%>
+	<br><br><br>
+	<%
+		String keyword=(String)request.getAttribute("item"); 
+	%>
+      <div id="shopimg" class="row" style="align-content:center;">
+        <div style="border-bottom:1px solid #cccccc; margin-bottom:20px;">
+      	  <h3> <%= keyword %> </h3>
+        </div>
+		       	<center>
+		        <div style="text-align:center;">
+		        	<!-- jstl 태그 사용하여 검색결과 없을 경우와 있을 경우에 동적으로 검색결과 노출 -->
+					<c:choose>
+					
+					    <c:when test="${product_list.size() == 0}">
+					        <h3>일치하는 결과가 없습니다.</h3>
+					    </c:when>
+					    <c:when test="${ !product_list.isEmpty() }">
+					        <c:forEach var="items" varStatus="status" items="${product_list}">
+								<div class="col-sm-3">
+								<a href="iteminfo?pno=${ items.pno }"><img src="${ items.pimg }" alt="${ items.pname }" style="width:100%; height:auto;"></a>
+							    <div>
+							          <span>${ items.pname }</span>
+							          <p>${ items.price }원</p>
+							        </div>
+						        </div>
+							</c:forEach>
+					    </c:when>
+					    
+					</c:choose>	        	
+		        </div>
+		        </center>
+		      </div>
 			<br>
-			<%		}
-			}
-		%></div>
-	</center>
+	</div>
 <br>
 	<br>
 	<br>

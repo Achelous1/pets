@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -35,8 +35,8 @@
     <br>
     <div id="Nav_menu">
       <ul>
-        <li><a href="./login.jsp"> 로그인 </a> </li>
-        <li><a href="./join.jsp"> 회원가입 </a></li>
+        <li><a href="login"> 로그인 </a> </li>
+        <li><a href="join"> 회원가입 </a></li>
         <li> 마이페이지 </li>
         <li> 장바구니 </li>
       </ul>
@@ -45,7 +45,7 @@
     <br>
 
       <div id="Mainimg">
-        <a href="./index.jsp"><img src="./img/main.jpg" style="width:50%;height:30%;"></img></a>
+        <a href="/pets"><img src="resources/img/main.jpg" style="width:50%;height:30%;"></img></a>
       </div>
 
       <br><br><br><br>

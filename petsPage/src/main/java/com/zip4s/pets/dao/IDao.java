@@ -8,15 +8,13 @@ import com.zip4s.pets.dto.CustomerDTO;
 import com.zip4s.pets.dto.ProductDTO;
 
 public interface IDao {
-	
-	
 	//유저 DAO
-	public CustomerDTO getCustomerDao(String id, String pw);
+	public CustomerDTO getCustomerDao(String id, String pw) throws NullPointerException;
 	public void addCustomerDao(String id, String pw, String cname, String phone, String addr);
 	public void deleteCustomerDao(String id);
 	
 	//게시판 DAO
-	public ArrayList<BoardDTO> getBoardListDao();
+	public ArrayList<BoardDTO> getBoardListDao(int page);
 	public void writeBoardDao(String subject, String id, String pw, String content);
 	public BoardDTO getBoardDao(int bno);
 	public void deleteBoardDao(int bno);
@@ -24,11 +22,12 @@ public interface IDao {
 	
 	//카트 DAO
 	public ArrayList<CartDTO> getCartList(int cno);
-	public void deleteFromCart(int cno, int pno);
+	public void deleteCartItemDao(int pno, int cno);
 	public void addToCartDao(int pno, int cno, int qty);
 	
 	//제품 DAO
 	public ProductDTO getProductDao(int pno);
 	public ArrayList<ProductDTO> getProductListDao();
-
+	public ArrayList<ProductDTO> searchProductDao(String searchStr);
+	public ArrayList<ProductDTO> selectByItemDao(String item);
 }
